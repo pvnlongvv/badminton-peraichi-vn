@@ -793,7 +793,7 @@
         <a href="#feature1" class="hide-mobile">Cách chơi</a>
         <a href="#feature2" class="hide-mobile">Giao cầu</a>
         <a href="#summary" class="hide-mobile">Tóm tắt</a>
-        <a href="#" class="cta-btn">Đăng ký</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5zetg6bMEgrt6ljgUHlsoel6j7EcfVQhVNRH8RN1NveNszA/viewform" target="_blank" rel="noopener noreferrer" class="cta-btn">Đăng ký</a>
       </div>
     </div>
   </div>
@@ -1526,6 +1526,45 @@
     }
   }
   setPha(1, false);
+  
+  // ===== Auto-start autoplay when each demo scrolls into view =====
+  function initAutoStart() {
+    const demos = document.querySelectorAll('.interactive-demo');
+    if (demos.length < 2) return;
+    const serveDemo = demos[0];
+    const rotDemo = demos[1];
+    
+    if (!('IntersectionObserver' in window)) {
+      // Fallback: start both immediately
+      setTimeout(() => { if (!serveAutoplay) toggleServeAutoplay(); }, 800);
+      setTimeout(() => { if (!rotAutoplay) toggleRotAutoplay(); }, 1200);
+      return;
+    }
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        if (entry.target === serveDemo && !serveAutoplay) {
+          toggleServeAutoplay();
+          observer.unobserve(entry.target);
+        } else if (entry.target === rotDemo && !rotAutoplay) {
+          // Reset to Pha 1 first so user sees the story from the start
+          if (currentRotPha !== 1) setPha(1, false);
+          setTimeout(() => { if (!rotAutoplay) toggleRotAutoplay(); }, 500);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '0px 0px -80px 0px' });
+    
+    observer.observe(serveDemo);
+    observer.observe(rotDemo);
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAutoStart);
+  } else {
+    initAutoStart();
+  }
 </script>
 
 </body>
