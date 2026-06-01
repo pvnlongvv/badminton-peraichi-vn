@@ -993,6 +993,50 @@
   .pts-box.win .big { color: var(--primary); }
   .pts-box.lose .big { color: var(--cta); }
   .pts-box .unit { font-size: 13px; color: var(--ink-muted); margin-top: 4px; }
+
+  /* ===== PHASES & PLAYOFF ===== */
+  .phase-flow { display: flex; align-items: stretch; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+  .phase-box { flex: 1; min-width: 220px; background: white; border: 2px solid var(--primary-light); border-radius: 16px; padding: 18px 20px; }
+  .phase-box .ph-tag { font-family: var(--rounded); font-weight: 800; font-size: 11px; color: white; background: var(--primary); border-radius: 999px; padding: 3px 12px; display: inline-block; margin-bottom: 8px; letter-spacing: 0.05em; }
+  .phase-box.gold { border-color: var(--accent); }
+  .phase-box.gold .ph-tag { background: var(--accent); color: var(--ink); }
+  .phase-box h5 { font-family: var(--rounded); font-weight: 800; font-size: 16px; color: var(--ink); margin-bottom: 4px; }
+  .phase-box p { font-size: 13px; color: var(--ink-mid); line-height: 1.6; margin: 0; }
+  .phase-arrow { display: flex; align-items: center; justify-content: center; font-size: 26px; color: var(--primary); font-weight: 800; flex: 0 0 auto; }
+  @media (max-width: 720px) { .phase-arrow { transform: rotate(90deg); width: 100%; height: 24px; } }
+  
+  .bracket-wrap { background: linear-gradient(135deg, var(--primary-ultralight), white); border-radius: 16px; padding: 18px; overflow-x: auto; border: 1px solid var(--border); margin: 8px 0; }
+  .bracket-svg { width: 100%; min-width: 560px; height: auto; display: block; }
+  .bracket-cap { text-align: center; font-size: 13px; color: var(--ink-muted); margin-top: 4px; }
+  
+  .match3rd { background: #fff7ed; border: 2px solid #fed7aa; border-radius: 14px; padding: 16px 20px; margin: 14px 0; }
+  .match3rd .m3-title { font-family: var(--rounded); font-weight: 800; font-size: 15px; color: #c2570c; margin-bottom: 6px; }
+  .match3rd .m3-body { font-size: 14px; color: var(--ink-mid); line-height: 1.65; }
+  .match3rd .m3-body strong { color: var(--ink); font-weight: 600; }
+  
+  .prizes-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 16px; }
+  @media (max-width: 620px) { .prizes-row { grid-template-columns: repeat(2, 1fr); } }
+  .prize-cell { text-align: center; border-radius: 14px; padding: 16px 8px; border: 2px solid var(--border); background: white; }
+  .prize-cell .pz-medal { font-size: 30px; line-height: 1; }
+  .prize-cell .pz-name { font-family: var(--rounded); font-weight: 800; font-size: 14px; margin-top: 6px; color: var(--ink); }
+  .prize-cell .pz-from { font-size: 11px; color: var(--ink-muted); margin-top: 3px; line-height: 1.4; }
+  .prize-cell.g1 { background: linear-gradient(135deg,#fff4d6,#fffaf0); border-color: var(--accent); }
+  .prize-cell.g2 { background: var(--primary-ultralight); border-color: var(--primary-light); }
+
+  /* ===== FORMAT COMPARE ===== */
+  .fmt-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+  .fc-box { border-radius: 16px; padding: 20px 22px; border: 2px solid var(--border); }
+  .fc-box.group { background: var(--primary-ultralight); border-color: var(--primary-light); }
+  .fc-box.po { background: var(--accent-light); border-color: var(--accent); }
+  .fc-box .fc-tag { font-family: var(--rounded); font-weight: 800; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px; display: inline-block; padding: 4px 12px; border-radius: 999px; }
+  .fc-box.group .fc-tag { background: var(--primary); color: white; }
+  .fc-box.po .fc-tag { background: var(--accent); color: var(--ink); }
+  .fc-box .fc-line { display: flex; align-items: baseline; gap: 8px; margin-top: 10px; }
+  .fc-box .fc-num { font-family: var(--rounded); font-weight: 800; font-size: 30px; line-height: 1; flex-shrink: 0; }
+  .fc-box.group .fc-num { color: var(--primary); }
+  .fc-box.po .fc-num { color: var(--cta-dark); }
+  .fc-box .fc-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.45; }
+  @media (max-width: 620px) { .fmt-compare { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -1080,20 +1124,20 @@
   <div class="container">
     <div class="stats-grid">
       <div class="stat-cell">
-        <span class="num">3</span>
-        <div class="label">Ván / trận</div>
-      </div>
-      <div class="stat-cell">
-        <span class="num">21</span>
-        <div class="label">Điểm / ván</div>
-      </div>
-      <div class="stat-cell">
-        <span class="num">2<span class="small">/đội</span></span>
-        <div class="label">Cặp đôi</div>
+        <span class="num">6</span>
+        <div class="label">Đội tham gia</div>
       </div>
       <div class="stat-cell">
         <span class="num">1+1</span>
         <div class="label">Nam · Nữ</div>
+      </div>
+      <div class="stat-cell">
+        <span class="num">21</span>
+        <div class="label">Điểm / trận</div>
+      </div>
+      <div class="stat-cell">
+        <span class="num">Top<span class="small"> 4</span></span>
+        <div class="label">Vào play-off</div>
       </div>
     </div>
   </div>
@@ -1105,34 +1149,51 @@
     <div class="section-label"><span class="en">Tournament Format</span></div>
     <h2 class="section-title">Thể thức & <span class="hl">Lịch thi đấu</span></h2>
     <p class="section-intro">
-      Giải đấu theo thể thức <strong>vòng tròn 1 lượt</strong> cho 6 đội — mỗi đội gặp 5 đội còn lại đúng 1 trận. Tổng cộng 15 trận, chia thành 5 lượt. Dưới đây là minh hoạ chi tiết để bạn dễ hình dung.
+      Giải gồm <strong>2 giai đoạn</strong>: vòng tròn tính điểm để xếp hạng, sau đó Top 4 đội vào vòng play-off tranh giải Nhất – Nhì – Ba – Khuyến khích.
     </p>
     
-    <div class="info-grid" style="max-width: 900px; margin: 0 auto 36px;">
+    <div class="container-narrow" style="padding: 0;">
+      <!-- 2 PHASES OVERVIEW -->
+      <div class="phase-flow">
+        <div class="phase-box">
+          <span class="ph-tag">Giai đoạn 1</span>
+          <h5>Vòng tròn tính điểm</h5>
+          <p>6 đội đấu vòng tròn, mỗi đội 5 trận. Mỗi trận 1 ván 21 điểm — thắng +2, thua 0 điểm. Tổng 15 trận.</p>
+        </div>
+        <div class="phase-arrow">→</div>
+        <div class="phase-box gold">
+          <span class="ph-tag">Giai đoạn 2</span>
+          <h5>Play-off tranh giải</h5>
+          <p>Top 4 đội vào nhánh đấu loại trực tiếp: 2 bán kết → chung kết & tranh hạng ba. Mỗi trận đánh 3 ván, mỗi ván 15 điểm.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="info-grid" style="max-width: 900px; margin: 24px auto 36px;">
       <div class="info-card">
         <div class="big-num">6</div>
         <div class="card-title">Đội tham gia</div>
         <div class="card-desc">Mỗi đội 1 cặp nam–nữ</div>
       </div>
       <div class="info-card">
-        <div class="big-num">5</div>
-        <div class="card-title">Trận mỗi đội</div>
-        <div class="card-desc">Gặp 5 đội còn lại, mỗi đội 1 trận</div>
+        <div class="big-num">21<span class="unit">đ</span></div>
+        <div class="card-title">Mỗi trận</div>
+        <div class="card-desc">Đánh 1 ván 21 điểm</div>
       </div>
       <div class="info-card warm">
         <div class="big-num">15</div>
-        <div class="card-title">Tổng số trận</div>
-        <div class="card-desc">Chia thành 5 lượt × 3 trận</div>
+        <div class="card-title">Trận vòng bảng</div>
+        <div class="card-desc">5 lượt × 3 trận</div>
       </div>
       <div class="info-card warm">
-        <div class="big-num">5</div>
-        <div class="card-title">Lượt đấu</div>
-        <div class="card-desc">Mỗi lượt cả 6 đội đều thi đấu</div>
+        <div class="big-num">4</div>
+        <div class="card-title">Trận play-off</div>
+        <div class="card-desc">Mỗi trận 3 ván · 15 điểm/ván</div>
       </div>
     </div>
     
     <div class="container-narrow" style="padding: 0;">
-      <!-- WHEEL: round-robin concept -->
+      <!-- 1. WHEEL -->
       <div class="sub-feature">
         <div class="sub-num">1</div>
         <h3>Vòng tròn <span class="hl">là gì?</span></h3>
@@ -1140,11 +1201,11 @@
         <div class="rr-wheel-card">
           <div class="wheel-text">
             <h5>6 đội · ai cũng gặp ai</h5>
-            <p>Đếm số đường nối, bạn sẽ thấy đúng <strong>15 đường</strong> — tương ứng 15 trận của cả giải. Không đội nào bị bỏ sót, không cặp nào đấu 2 lần.</p>
+            <p>Đếm số đường nối, bạn sẽ thấy đúng <strong>15 đường</strong> — tương ứng 15 trận. Mỗi trận đánh <strong>1 ván 21 điểm</strong>: đội thắng được <strong>2 điểm</strong>, đội thua <strong>0 điểm</strong>.</p>
             <div class="pillrow">
               <span class="rr-pill"><span class="n">6</span> đội</span>
-              <span class="rr-pill"><span class="n">15</span> đường nối</span>
-              <span class="rr-pill"><span class="n">5</span> trận/đội</span>
+              <span class="rr-pill"><span class="n">15</span> trận</span>
+              <span class="rr-pill"><span class="n">+2</span> điểm/thắng</span>
             </div>
           </div>
           <div>
@@ -1181,7 +1242,7 @@
         </div>
       </div>
       
-      <!-- SCHEDULE: round by round -->
+      <!-- 2. SCHEDULE -->
       <div class="sub-feature">
         <div class="sub-num">2</div>
         <h3>Lịch thi đấu <span class="hl">chi tiết</span></h3>
@@ -1310,7 +1371,7 @@
         </div>
       </div>
       
-      <!-- FIXTURE GRID -->
+      <!-- 3. FIXTURE GRID -->
       <div class="sub-feature">
         <div class="sub-num">3</div>
         <h3>Bảng gặp gỡ <span class="hl">(ai gặp ai, lượt mấy)</span></h3>
@@ -1385,11 +1446,11 @@
         <div class="fixture-legend">Ô chéo (—) là chính đội đó — không tự đấu với mình.</div>
       </div>
       
-      <!-- RANKING -->
+      <!-- 4. RANKING -->
       <div class="sub-feature">
         <div class="sub-num">4</div>
-        <h3>Cách tính điểm & <span class="hl">xếp hạng</span></h3>
-        <p>Sau mỗi trận, đội thắng được cộng điểm xếp hạng:</p>
+        <h3>Xếp hạng & <span class="hl">chọn Top 4</span></h3>
+        <p>Sau khi cả 15 trận vòng bảng kết thúc (không còn đội nào phải chờ), tổng kết bảng xếp hạng. Đội thắng mỗi trận được:</p>
         <div class="pts-illu">
           <div class="pts-box win">
             <div class="label">🏆 Thắng 1 trận</div>
@@ -1402,18 +1463,106 @@
             <div class="unit">điểm xếp hạng</div>
           </div>
         </div>
-        <p>Cuối giải, xếp hạng theo thứ tự ưu tiên — tiêu chí trên hết, nếu bằng nhau mới xét tiêu chí dưới:</p>
+        <p>Xếp hạng theo thứ tự ưu tiên — tiêu chí trên hết, nếu bằng nhau mới xét tiêu chí dưới:</p>
         <ol class="fmt-criteria">
           <li><div class="c-text"><strong>Tổng điểm xếp hạng</strong> (= số trận thắng × 2). Đây là tiêu chí chính.</div></li>
           <li><div class="c-text"><strong>Đối đầu trực tiếp</strong> — nếu 2 đội bằng điểm, ai thắng trận gặp nhau xếp trên.</div></li>
-          <li><div class="c-text"><strong>Hiệu số ván</strong> — tổng ván thắng trừ tổng ván thua.</div></li>
-          <li><div class="c-text"><strong>Hiệu số điểm</strong> — điểm ghi trừ điểm bị ghi (tiêu chí phụ cuối cùng).</div></li>
+          <li><div class="c-text"><strong>Hiệu số điểm</strong> — tổng điểm ghi trừ tổng điểm bị ghi qua các trận.</div></li>
         </ol>
         <div class="callout" style="margin-top: 8px;">
           <div class="icon-circle">!</div>
           <div>
-            <span class="lbl">Lưu ý</span>
-            <div class="body">Không dùng "tổng điểm ghi được" làm tiêu chí chính, vì cách đó thưởng cho trận kéo dài chứ không thưởng cho đội mạnh — một đội thua nhưng đấu sát nút có thể tích nhiều điểm hơn đội thắng gọn.</div>
+            <span class="lbl">Quan trọng</span>
+            <div class="body"><strong>Top 4 đội</strong> xếp cao nhất sẽ giành vé vào vòng play-off. Không dùng "tổng điểm ghi được" làm tiêu chí chính, vì cách đó thưởng cho trận kéo dài chứ không thưởng cho đội mạnh.</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 5. PLAYOFF -->
+      <div class="sub-feature">
+        <div class="sub-num">5</div>
+        <h3>Vòng play-off <span class="hl">— tranh giải</span></h3>
+        <p>4 đội mạnh nhất vào nhánh đấu loại trực tiếp. Cách bắt cặp theo kiểu <strong>1 gặp 4, 2 gặp 3</strong> để đội xếp cao có lợi thế:</p>
+        
+        <div class="callout" style="margin: 16px 0;">
+          <div class="icon-circle">!</div>
+          <div>
+            <span class="lbl">Thể thức thi đấu khác vòng bảng</span>
+            <div class="body">Mỗi trận play-off đánh theo thể thức <strong>3 ván (thắng 2 ván là thắng trận)</strong>, và mỗi ván rút xuống <strong>15 điểm</strong> (vẫn phải hơn đối thủ ít nhất 2 điểm) — căng thẳng và quyết định hơn so với 1 ván 21 điểm ở vòng bảng.</div>
+          </div>
+        </div>
+        
+        <div class="fmt-compare">
+          <div class="fc-box group">
+            <span class="fc-tag">Vòng bảng</span>
+            <div class="fc-line"><span class="fc-num">1</span><span class="fc-desc">ván mỗi trận</span></div>
+            <div class="fc-line"><span class="fc-num">21</span><span class="fc-desc">điểm mỗi ván</span></div>
+          </div>
+          <div class="fc-box po">
+            <span class="fc-tag">Vòng play-off</span>
+            <div class="fc-line"><span class="fc-num">3</span><span class="fc-desc">ván — thắng 2 ván là thắng trận</span></div>
+            <div class="fc-line"><span class="fc-num">15</span><span class="fc-desc">điểm mỗi ván</span></div>
+          </div>
+        </div>
+        
+        <div class="bracket-wrap">
+          <svg class="bracket-svg" viewBox="0 0 660 290" preserveAspectRatio="xMidYMid meet">
+        <text x="68" y="14" text-anchor="middle" font-family="M PLUS Rounded 1c" font-weight="800" font-size="11" fill="#8896a6">TỪ VÒNG BẢNG</text>
+        <text x="249" y="14" text-anchor="middle" font-family="M PLUS Rounded 1c" font-weight="800" font-size="11" fill="#8896a6">BÁN KẾT</text>
+        <text x="440" y="14" text-anchor="middle" font-family="M PLUS Rounded 1c" font-weight="800" font-size="11" fill="#8896a6">CHUNG KẾT</text>
+        <polyline points="128,37 156,37 156,64 185,64" fill="none" stroke="#bcd0de" stroke-width="2" stroke-linejoin="round"/>
+        <polyline points="128,91 156,91 156,64" fill="none" stroke="#bcd0de" stroke-width="2" stroke-linejoin="round"/>
+        <polyline points="128,189 156,189 156,216 185,216" fill="none" stroke="#bcd0de" stroke-width="2" stroke-linejoin="round"/>
+        <polyline points="128,243 156,243 156,216" fill="none" stroke="#bcd0de" stroke-width="2" stroke-linejoin="round"/>
+        <polyline points="313,64 341,64 341,140 370,140" fill="none" stroke="#bcd0de" stroke-width="2" stroke-linejoin="round"/>
+        <polyline points="313,216 341,216 341,140" fill="none" stroke="#bcd0de" stroke-width="2" stroke-linejoin="round"/>
+        <polyline points="510,140 545,140" fill="none" stroke="#bcd0de" stroke-width="2" stroke-linejoin="round"/>
+        <rect x="8" y="18" width="120" height="38" rx="10" fill="white" stroke="#00a4dc" stroke-width="2"/>
+        <text x="68.0" y="41.5" text-anchor="middle" font-family="M PLUS Rounded 1c" font-weight="800" font-size="13" fill="#2c3e50">Hạng 1</text>
+        <rect x="8" y="72" width="120" height="38" rx="10" fill="white" stroke="#00a4dc" stroke-width="2"/>
+        <text x="68.0" y="95.5" text-anchor="middle" font-family="M PLUS Rounded 1c" font-weight="800" font-size="13" fill="#2c3e50">Hạng 4</text>
+        <rect x="8" y="170" width="120" height="38" rx="10" fill="white" stroke="#00a4dc" stroke-width="2"/>
+        <text x="68.0" y="193.5" text-anchor="middle" font-family="M PLUS Rounded 1c" font-weight="800" font-size="13" fill="#2c3e50">Hạng 2</text>
+        <rect x="8" y="224" width="120" height="38" rx="10" fill="white" stroke="#00a4dc" stroke-width="2"/>
+        <text x="68.0" y="247.5" text-anchor="middle" font-family="M PLUS Rounded 1c" font-weight="800" font-size="13" fill="#2c3e50">Hạng 3</text>
+        <rect x="185" y="43" width="128" height="42" rx="10" fill="#f0faff" stroke="#00a4dc" stroke-width="2"/>
+        <text x="249.0" y="68.5" text-anchor="middle" font-family="M PLUS Rounded 1c" font-weight="800" font-size="13" fill="#2c3e50">Bán kết 1</text>
+        <rect x="185" y="195" width="128" height="42" rx="10" fill="#f0faff" stroke="#00a4dc" stroke-width="2"/>
+        <text x="249.0" y="220.5" text-anchor="middle" font-family="M PLUS Rounded 1c" font-weight="800" font-size="13" fill="#2c3e50">Bán kết 2</text>
+        <rect x="370" y="115" width="140" height="50" rx="10" fill="#fff4d6" stroke="#ffc107" stroke-width="2"/>
+        <text x="440.0" y="144.5" text-anchor="middle" font-family="M PLUS Rounded 1c" font-weight="800" font-size="14" fill="#c2570c">CHUNG KẾT</text>
+        <rect x="545" y="118" width="108" height="44" rx="10" fill="#ffc107" stroke="#e0a800" stroke-width="2"/>
+        <text x="599.0" y="144.5" text-anchor="middle" font-family="M PLUS Rounded 1c" font-weight="800" font-size="13" fill="#2c3e50">VÔ ĐỊCH</text>
+      </svg>
+        </div>
+        <div class="bracket-cap">Nhánh tranh Nhất – Nhì: thắng bán kết vào chung kết.</div>
+        
+        <div class="match3rd">
+          <div class="m3-title">🥉 Trận tranh hạng Ba</div>
+          <div class="m3-body">Hai đội <strong>thua ở bán kết</strong> sẽ gặp nhau: đội thắng giành <strong>giải Ba</strong>, đội thua nhận <strong>giải Khuyến khích</strong>.</div>
+        </div>
+        
+        <p style="margin-top: 18px;">Tổng cộng <strong>4 trận play-off</strong> (2 bán kết + 1 chung kết + 1 tranh hạng ba) sẽ xác định đủ 4 giải thưởng:</p>
+        <div class="prizes-row">
+          <div class="prize-cell g1">
+            <div class="pz-medal">🥇</div>
+            <div class="pz-name">Giải Nhất</div>
+            <div class="pz-from">Thắng chung kết</div>
+          </div>
+          <div class="prize-cell g1">
+            <div class="pz-medal">🥈</div>
+            <div class="pz-name">Giải Nhì</div>
+            <div class="pz-from">Thua chung kết</div>
+          </div>
+          <div class="prize-cell g2">
+            <div class="pz-medal">🥉</div>
+            <div class="pz-name">Giải Ba</div>
+            <div class="pz-from">Thắng trận tranh hạng ba</div>
+          </div>
+          <div class="prize-cell g2">
+            <div class="pz-medal">🎖️</div>
+            <div class="pz-name">Khuyến khích</div>
+            <div class="pz-from">Thua trận tranh hạng ba</div>
           </div>
         </div>
       </div>
@@ -1516,7 +1665,7 @@
     <div class="sub-feature">
       <div class="sub-num">1</div>
       <h3>Cách tính <span class="hl">điểm</span></h3>
-      <p>Mỗi trận đánh <strong>3 ván</strong>, thắng 2 ván là thắng cả trận. Mỗi ván chơi đến <strong>21 điểm</strong> và phải hơn đối thủ ít nhất 2 điểm.</p>
+      <p>Mỗi ván chơi đến <strong>21 điểm</strong> và phải hơn đối thủ ít nhất 2 điểm. Theo luật chuẩn, một trận gồm 3 ván (thắng 2 ván là thắng trận) — <strong>riêng giải đấu này, mỗi trận chỉ đánh 1 ván 21 điểm</strong> để kịp lịch (xem mục Thể thức).</p>
       
       <table class="tbl-clean">
         <thead>
