@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luật Chơi Cầu Lông Đôi Nam Nữ — Hướng dẫn cho người mới</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #00a4dc;
+    --primary-dark: #0080b3;
+    --primary-light: #e6f6fc;
+    --primary-ultralight: #f0faff;
+    --accent: #ffc107;
+    --accent-light: #fff4d6;
+    --cta: #ff5a5f;
+    --cta-dark: #e63946;
+    --ink: #2c3e50;
+    --ink-mid: #546070;
+    --ink-muted: #8896a6;
+    --bg: #ffffff;
+    --bg-soft: #f7f9fc;
+    --court: #1b4332;
+    --court-light: #2d6a4f;
+    --court-deep: #0f2c20;
+    --shuttle: #ffd60a;
+    --border: #e5ecf2;
+    --rounded: 'M PLUS Rounded 1c', system-ui, sans-serif;
+    --body: 'Be Vietnam Pro', system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.7;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .container-narrow { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+  a { color: inherit; text-decoration: none; }
+  
+  /* ===== HEADER ===== */
+  header.site-head {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+    padding: 14px 0;
+  }
+  .head-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .logo {
+    font-family: var(--rounded); font-weight: 800; font-size: 20px;
+    color: var(--ink); display: flex; align-items: center; gap: 10px;
+  }
+  .logo .bird {
+    width: 36px; height: 36px;
+    background: var(--primary); border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: white; font-size: 18px;
+    box-shadow: 0 4px 12px -2px rgba(0,164,220,0.4);
+  }
+  .nav { display: flex; align-items: center; gap: 24px; font-size: 14px; color: var(--ink-mid); font-weight: 500; }
+  .nav a:hover { color: var(--primary); }
+  .nav .cta-btn {
+    background: var(--cta); color: white;
+    padding: 10px 22px; border-radius: 999px;
+    font-family: var(--rounded); font-weight: 700;
+    box-shadow: 0 4px 12px -2px rgba(255,90,95,0.35);
+    transition: all 0.2s;
+  }
+  .nav .cta-btn:hover { background: var(--cta-dark); color: white; transform: translateY(-1px); }
+  @media (max-width: 720px) {
+    .nav .hide-mobile { display: none; }
+    .nav { gap: 12px; }
+  }
+  
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #e6f6fc 0%, #fff4d6 100%);
+    padding: 70px 0 120px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ""; position: absolute;
+    top: -120px; right: -120px;
+    width: 420px; height: 420px;
+    background: radial-gradient(circle, rgba(0,164,220,0.12), transparent 65%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: ""; position: absolute;
+    bottom: -100px; left: -60px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(255,193,7,0.18), transparent 65%);
+    border-radius: 50%;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px; align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: white; border-radius: 999px;
+    padding: 8px 20px;
+    font-size: 13px; color: var(--primary-dark); font-weight: 700;
+    font-family: var(--rounded);
+    box-shadow: 0 4px 14px -4px rgba(0,164,220,0.2);
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+  .hero-badge .dot {
+    width: 8px; height: 8px;
+    background: var(--cta); border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+  }
+  .hero h1 {
+    font-family: var(--rounded); font-weight: 800;
+    font-size: clamp(34px, 5.2vw, 54px);
+    line-height: 1.25; letter-spacing: -0.01em;
+    color: var(--ink); margin-bottom: 24px;
+  }
+  .hero h1 .hl {
+    background: linear-gradient(transparent 62%, var(--accent) 62%);
+    padding: 0 6px;
+  }
+  .hero h1 .accent { color: var(--primary); }
+  .hero-sub {
+    font-size: 17px; line-height: 1.75;
+    color: var(--ink-mid);
+    margin-bottom: 36px;
+    max-width: 540px;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 32px; border-radius: 999px;
+    font-family: var(--rounded); font-weight: 700; font-size: 16px;
+    transition: all 0.2s; border: none; cursor: pointer;
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: var(--cta); color: white;
+    box-shadow: 0 6px 20px -4px rgba(255,90,95,0.5);
+  }
+  .btn-primary:hover {
+    background: var(--cta-dark); transform: translateY(-2px);
+    box-shadow: 0 8px 26px -4px rgba(255,90,95,0.6);
+  }
+  .btn-secondary {
+    background: white; color: var(--primary);
+    box-shadow: 0 4px 14px -4px rgba(0,164,220,0.2);
+    border: 2px solid white;
+  }
+  .btn-secondary:hover {
+    background: var(--primary); color: white;
+    transform: translateY(-2px);
+  }
+  .btn .arrow { font-weight: 800; }
+  
+  /* Hero court card */
+  .hero-visual { position: relative; }
+  .hero-court-card {
+    background: white; border-radius: 24px; padding: 24px;
+    box-shadow: 0 30px 60px -20px rgba(0,80,120,0.25);
+    position: relative; overflow: hidden;
+  }
+  .hero-court-card .floating-badge {
+    position: absolute; top: 16px; right: 16px;
+    background: var(--accent); color: var(--ink);
+    border-radius: 999px; padding: 6px 14px;
+    font-family: var(--rounded); font-weight: 800; font-size: 11px;
+    letter-spacing: 0.08em;
+    box-shadow: 0 4px 12px -2px rgba(255,193,7,0.5);
+    z-index: 3;
+  }
+  .hero-court-bg {
+    background: var(--primary-ultralight);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+  .court-svg { width: 100%; height: auto; display: block; }
+  .hero-court-info {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 4px;
+  }
+  .hero-court-info .ttl {
+    font-family: var(--rounded); font-weight: 700; font-size: 14px;
+    color: var(--ink);
+  }
+  .hero-court-info .sub {
+    font-size: 12px; color: var(--ink-muted);
+  }
+  
+  /* ===== STATS BANNER ===== */
+  .stats-banner {
+    background: var(--bg);
+    padding: 0 0 80px;
+    margin-top: -60px;
+    position: relative; z-index: 5;
+  }
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    background: white;
+    border-radius: 20px;
+    padding: 32px 24px;
+    box-shadow: 0 20px 50px -20px rgba(0,80,120,0.18);
+    border: 1px solid var(--border);
+  }
+  .stat-cell {
+    text-align: center; padding: 8px 16px;
+    border-right: 1px dashed var(--border);
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-cell .num {
+    font-family: var(--rounded); font-size: 44px; font-weight: 800;
+    color: var(--primary); line-height: 1; display: block;
+  }
+  .stat-cell .num .small {
+    font-size: 0.5em; color: var(--ink-muted); font-weight: 600;
+  }
+  .stat-cell .label {
+    margin-top: 8px; font-size: 13px;
+    color: var(--ink-muted); font-weight: 500;
+  }
+  
+  /* ===== SECTION HEADERS ===== */
+  .section-label { text-align: center; margin-bottom: 14px; }
+  .section-label .en {
+    color: var(--primary); font-family: var(--rounded);
+    font-size: 13px; font-weight: 800; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 12px;
+  }
+  .section-label .en::before,
+  .section-label .en::after {
+    content: ""; width: 30px; height: 2px; background: var(--primary);
+  }
+  .section-title {
+    text-align: center;
+    font-family: var(--rounded); font-weight: 800;
+    font-size: clamp(26px, 3.8vw, 38px);
+    line-height: 1.35; color: var(--ink);
+    margin-bottom: 14px; letter-spacing: -0.005em;
+  }
+  .section-title .hl {
+    background: linear-gradient(transparent 62%, var(--accent) 62%);
+    padding: 0 6px;
+  }
+  .section-intro {
+    text-align: center; color: var(--ink-mid);
+    max-width: 640px; margin: 0 auto 50px;
+    font-size: 16px; line-height: 1.75;
+  }
+  
+  /* ===== FEATURE BLOCK ===== */
+  section.feature {
+    padding: 90px 0;
+    position: relative;
+  }
+  section.feature.alt { background: var(--bg-soft); }
+  
+  .feature-tag {
+    display: inline-block;
+    background: var(--primary); color: white;
+    border-radius: 999px;
+    padding: 6px 18px;
+    font-family: var(--rounded); font-weight: 800; font-size: 12px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .feature-tag-row {
+    text-align: center; margin-bottom: 16px;
+  }
+  
+  .sub-feature {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 30px -10px rgba(0,80,120,0.08);
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .sub-feature.no-shadow { box-shadow: none; }
+  
+  .sub-num {
+    position: absolute;
+    top: -16px; left: 32px;
+    background: var(--primary);
+    color: white;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--rounded); font-weight: 800; font-size: 18px;
+    box-shadow: 0 6px 16px -4px rgba(0,164,220,0.4);
+  }
+  
+  .sub-feature h3 {
+    font-family: var(--rounded); font-weight: 800;
+    font-size: clamp(22px, 2.8vw, 28px);
+    color: var(--ink); line-height: 1.35;
+    margin-top: 12px;
+    margin-bottom: 16px;
+  }
+  .sub-feature h3 .hl {
+    background: linear-gradient(transparent 62%, var(--accent-light) 62%);
+    padding: 0 4px;
+  }
+  .sub-feature p {
+    color: var(--ink-mid); margin-bottom: 16px; line-height: 1.75;
+  }
+  .sub-feature p strong { color: var(--ink); font-weight: 600; }
+  
+  /* INFO CARDS */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px; margin: 24px 0;
+  }
+  .info-card {
+    background: var(--primary-ultralight);
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    transition: all 0.25s;
+    border: 2px solid transparent;
+  }
+  .info-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    background: white;
+  }
+  .info-card.warm { background: var(--accent-light); }
+  .info-card.warm:hover { border-color: var(--accent); }
+  .info-card .big-num {
+    font-family: var(--rounded); font-size: 44px; font-weight: 800;
+    color: var(--primary); line-height: 1;
+  }
+  .info-card.warm .big-num { color: var(--cta-dark); }
+  .info-card .big-num .unit {
+    font-size: 0.45em; color: var(--ink-muted);
+    margin-left: 2px; font-weight: 600;
+  }
+  .info-card .card-title {
+    margin-top: 12px; font-weight: 700;
+    color: var(--ink); font-family: var(--rounded); font-size: 15px;
+  }
+  .info-card .card-desc {
+    margin-top: 6px; font-size: 13px;
+    color: var(--ink-mid); line-height: 1.5;
+  }
+  
+  /* CALLOUT */
+  .callout {
+    background: linear-gradient(135deg, var(--accent-light), #fff8df);
+    border-radius: 16px; padding: 20px 24px;
+    margin: 24px 0;
+    border-left: 5px solid var(--accent);
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .callout .icon-circle {
+    width: 36px; height: 36px;
+    background: var(--accent); color: var(--ink);
+    border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 800; font-family: var(--rounded); font-size: 18px;
+    flex-shrink: 0;
+  }
+  .callout .lbl {
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--cta-dark);
+    margin-bottom: 4px; display: block;
+    font-family: var(--rounded);
+  }
+  .callout .body {
+    font-size: 15px; line-height: 1.65; color: var(--ink);
+  }
+  .callout .body strong {
+    background: white; padding: 2px 8px;
+    border-radius: 6px; font-weight: 700;
+  }
+  
+  /* TABLE */
+  .tbl-clean {
+    width: 100%; border-collapse: separate; border-spacing: 0;
+    margin: 24px 0; font-size: 15px;
+    background: white;
+    border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .tbl-clean thead { background: var(--primary-light); }
+  .tbl-clean th {
+    text-align: left; padding: 14px 20px;
+    font-family: var(--rounded); font-weight: 800;
+    font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--primary-dark);
+  }
+  .tbl-clean td {
+    padding: 16px 20px; border-top: 1px solid var(--border);
+    color: var(--ink-mid);
+  }
+  .tbl-clean td:first-child {
+    font-weight: 600; color: var(--ink);
+    font-family: var(--rounded);
+  }
+  
+  /* ===== INTERACTIVE DEMO ===== */
+  .interactive-demo {
+    background: white; border-radius: 24px;
+    padding: 32px; margin: 24px 0;
+    box-shadow: 0 20px 50px -15px rgba(0,80,120,0.12);
+    border: 1px solid var(--border);
+  }
+  .demo-head {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 20px;
+  }
+  .demo-head .icon-circle {
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+    box-shadow: 0 8px 20px -4px rgba(0,164,220,0.4);
+  }
+  .demo-head .title-block h4 {
+    font-family: var(--rounded); font-weight: 800;
+    font-size: 20px; color: var(--ink);
+    line-height: 1.3; margin-bottom: 2px;
+  }
+  .demo-head .title-block .sub {
+    font-size: 13px; color: var(--ink-muted);
+  }
+  
+  .serve-controls, .pha-controls {
+    display: flex; gap: 10px; margin-bottom: 20px;
+    flex-wrap: wrap; align-items: center;
+  }
+  
+  .serve-btn, .pha-btn {
+    background: white; color: var(--ink);
+    border: 2px solid var(--border);
+    padding: 10px 22px; border-radius: 999px;
+    font-family: var(--rounded); font-size: 14px; font-weight: 700;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .serve-btn:hover, .pha-btn:hover {
+    border-color: var(--primary); color: var(--primary);
+    transform: translateY(-1px);
+  }
+  .serve-btn.active, .pha-btn.active {
+    background: var(--primary); color: white;
+    border-color: var(--primary);
+    box-shadow: 0 6px 16px -4px rgba(0,164,220,0.4);
+  }
+  .serve-btn.autoplay, .pha-btn.autoplay {
+    background: var(--accent-light); border-color: var(--accent);
+    color: var(--cta-dark);
+  }
+  .serve-btn.autoplay:hover, .pha-btn.autoplay:hover {
+    background: var(--accent); color: var(--ink);
+    border-color: var(--accent);
+  }
+  .serve-btn.playing, .pha-btn.playing,
+  .serve-btn.playing:hover, .pha-btn.playing:hover {
+    background: var(--cta); color: white;
+    border-color: var(--cta);
+    box-shadow: 0 6px 16px -4px rgba(255,90,95,0.45);
+  }
+  .ctrl-divider {
+    width: 1px; align-self: stretch;
+    background: var(--border); margin: 0 6px;
+  }
+  
+  /* Court stage */
+  .court-stage {
+    background: var(--court-deep);
+    border-radius: 16px;
+    padding: 20px;
+    position: relative; overflow: hidden;
+  }
+  .court-stage svg { width: 100%; height: auto; }
+  .court-floor { fill: var(--court); }
+  .court-line { stroke: rgba(255,255,255,0.85); stroke-width: 1.5; fill: none; }
+  .court-line.thick { stroke-width: 2.5; }
+  .court-net {
+    stroke: var(--shuttle); stroke-width: 2.5;
+    stroke-dasharray: 4,3; opacity: 0.9;
+  }
+  .court-label {
+    fill: rgba(255,255,255,0.6);
+    font-family: var(--body); font-size: 10px;
+    text-anchor: middle; letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .court-label.lg { font-size: 12px; }
+  .court-side-label {
+    fill: var(--shuttle); font-family: var(--rounded);
+    font-size: 14px; font-weight: 800; text-anchor: middle;
+    letter-spacing: 0.03em;
+  }
+  .svc-zone { fill: var(--shuttle); opacity: 0; transition: opacity 0.4s ease; }
+  .svc-zone.active { opacity: 0.22; }
+  .svc-zone.receiver { fill: var(--cta); }
+  .svc-zone.receiver.active { opacity: 0.22; }
+  .shuttle-icon, .receiver-icon {
+    transition: transform 0.5s cubic-bezier(0.45, 0.05, 0.2, 1);
+  }
+  .serve-arrow {
+    stroke: var(--shuttle); stroke-width: 2.5; fill: none;
+    stroke-dasharray: 6,5; stroke-linecap: round; opacity: 0.9;
+  }
+  
+  /* Demo info */
+  .demo-info {
+    margin-top: 20px; background: var(--primary-ultralight);
+    border-radius: 16px; padding: 20px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+  }
+  .info-cell .lbl {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--primary-dark); font-weight: 800;
+    margin-bottom: 6px; font-family: var(--rounded);
+  }
+  .info-cell .val {
+    font-family: var(--rounded); font-size: 17px; font-weight: 700;
+    color: var(--ink); line-height: 1.4;
+  }
+  .info-cell .val em {
+    font-style: normal;
+    background: linear-gradient(transparent 60%, var(--accent) 60%);
+    padding: 0 4px;
+  }
+  
+  /* Pha narration */
+  .pha-narration {
+    margin-top: 20px;
+    background: var(--accent-light);
+    border-radius: 16px;
+    padding: 20px 24px;
+    border-left: 5px solid var(--accent);
+  }
+  .pha-narration .score-tag {
+    display: inline-block;
+    background: var(--cta); color: white;
+    border-radius: 999px; padding: 4px 16px;
+    font-family: var(--rounded); font-size: 12px; font-weight: 800;
+    margin-bottom: 10px; letter-spacing: 0.03em;
+  }
+  .pha-narration .text {
+    font-size: 15px; line-height: 1.65; color: var(--ink);
+  }
+  
+  /* CHECKLIST */
+  .checklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px; margin: 24px 0;
+  }
+  .check-item {
+    background: var(--primary-ultralight);
+    border-radius: 14px; padding: 18px;
+    display: flex; align-items: flex-start; gap: 14px;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .check-item:hover {
+    border-color: var(--primary);
+    background: white;
+  }
+  .check-item .check-icon {
+    width: 28px; height: 28px;
+    background: var(--primary); color: white;
+    border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px; flex-shrink: 0;
+  }
+  .check-item .text {
+    font-size: 14px; line-height: 1.55; color: var(--ink-mid);
+  }
+  .check-item .text strong { color: var(--ink); font-weight: 600; }
+  
+  /* FAULT GRID */
+  .fault-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px; margin: 24px 0;
+  }
+  .fault-item {
+    background: white;
+    border-radius: 14px; padding: 18px 20px;
+    display: flex; align-items: flex-start; gap: 14px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .fault-item:hover {
+    border-color: var(--cta);
+    transform: translateX(4px);
+    box-shadow: 0 8px 20px -8px rgba(255,90,95,0.2);
+  }
+  .fault-item .num {
+    background: var(--cta); color: white;
+    width: 30px; height: 30px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--rounded); font-weight: 800; font-size: 13px;
+    flex-shrink: 0;
+  }
+  .fault-item .text {
+    font-size: 14px; line-height: 1.55; color: var(--ink-mid);
+  }
+  .fault-item .text strong { color: var(--ink); font-weight: 600; }
+  
+  /* CTA BANNER */
+  .cta-banner-wrap { padding: 30px 24px; }
+  .cta-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 50px 30px;
+    text-align: center;
+    border-radius: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative; overflow: hidden;
+  }
+  .cta-banner::before {
+    content: ""; position: absolute;
+    top: -50px; right: -50px;
+    width: 200px; height: 200px;
+    background: rgba(255,193,7,0.18);
+    border-radius: 50%;
+  }
+  .cta-banner::after {
+    content: ""; position: absolute;
+    bottom: -80px; left: -30px;
+    width: 250px; height: 250px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+  .cta-banner-inner { position: relative; z-index: 1; }
+  .cta-banner h3 {
+    font-family: var(--rounded); font-weight: 800;
+    font-size: clamp(22px, 3.2vw, 30px);
+    margin-bottom: 12px; line-height: 1.3;
+  }
+  .cta-banner p {
+    font-size: 16px; opacity: 0.95;
+    margin-bottom: 24px; max-width: 560px;
+    margin-left: auto; margin-right: auto;
+  }
+  .cta-banner .btn-primary {
+    background: var(--accent); color: var(--ink);
+    box-shadow: 0 6px 20px -4px rgba(0,0,0,0.2);
+  }
+  .cta-banner .btn-primary:hover {
+    background: white; color: var(--cta);
+  }
+  
+  /* ===== SUMMARY ===== */
+  .summary-section {
+    padding: 100px 0;
+    background: linear-gradient(180deg, var(--primary-ultralight), var(--accent-light));
+  }
+  .summary-card {
+    background: white;
+    border-radius: 24px;
+    padding: 48px 40px;
+    box-shadow: 0 30px 60px -20px rgba(0,80,120,0.18);
+    max-width: 760px; margin: 0 auto;
+    border: 1px solid var(--border);
+  }
+  .summary-card .card-head {
+    text-align: center; margin-bottom: 32px;
+  }
+  .summary-card .card-tag {
+    display: inline-block;
+    background: var(--cta); color: white;
+    border-radius: 999px; padding: 6px 18px;
+    font-family: var(--rounded); font-size: 11px; font-weight: 800;
+    letter-spacing: 0.12em;
+    margin-bottom: 14px; text-transform: uppercase;
+  }
+  .summary-card h2 {
+    font-family: var(--rounded); font-weight: 800;
+    font-size: clamp(28px, 4vw, 36px);
+    color: var(--ink); line-height: 1.3;
+  }
+  .summary-card h2 .hl {
+    background: linear-gradient(transparent 62%, var(--accent) 62%);
+    padding: 0 6px;
+  }
+  .summary-list { list-style: none; counter-reset: sum; }
+  .summary-list li {
+    counter-increment: sum;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 18px; align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+  .summary-list li:last-child { border-bottom: none; }
+  .summary-list li::before {
+    content: counter(sum, decimal-leading-zero);
+    background: var(--primary-light); color: var(--primary-dark);
+    border-radius: 50%;
+    width: 40px; height: 40px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--rounded); font-weight: 800; font-size: 13px;
+  }
+  .summary-list li .text {
+    font-size: 16px; line-height: 1.7;
+    color: var(--ink-mid); padding-top: 4px;
+  }
+  .summary-list li .text strong {
+    color: var(--ink);
+    background: var(--accent-light);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+  }
+  
+  /* ===== FOOTER ===== */
+  footer.site-foot {
+    background: var(--ink); color: rgba(255,255,255,0.6);
+    padding: 50px 0 30px;
+    text-align: center; font-size: 13px;
+  }
+  .foot-logo {
+    font-family: var(--rounded); font-weight: 800; font-size: 20px;
+    color: white; margin-bottom: 12px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .foot-logo .bird {
+    width: 30px; height: 30px;
+    background: var(--primary); border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: white; font-size: 14px;
+  }
+  footer .tag {
+    font-family: var(--rounded); font-size: 15px;
+    color: var(--accent); margin: 16px 0;
+  }
+  footer .divider {
+    width: 60px; height: 1px;
+    background: rgba(255,255,255,0.2);
+    margin: 24px auto;
+  }
+  
+  /* ===== MOBILE ===== */
+  @media (max-width: 760px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero { padding: 50px 0 80px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 20px 12px; }
+    .stat-cell { border-right: none; padding: 12px 8px; }
+    .stat-cell .num { font-size: 32px; }
+    .sub-feature { padding: 24px 20px; }
+    .sub-num { left: 20px; width: 40px; height: 40px; font-size: 15px; top: -12px; }
+    .interactive-demo { padding: 20px; }
+    .court-stage { padding: 12px; }
+    .summary-card { padding: 28px 20px; }
+    section.feature { padding: 60px 0; }
+    .summary-section { padding: 60px 0; }
+    .cta-banner { padding: 36px 20px; }
+    .demo-head .icon-circle { width: 44px; height: 44px; font-size: 18px; }
+    .demo-info { grid-template-columns: 1fr; gap: 16px; padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-head">
+  <div class="container">
+    <div class="head-row">
+      <div class="logo">
+        <span class="bird">🏸</span>
+        <span>Mixed Doubles</span>
+      </div>
+      <div class="nav">
+        <a href="#feature1" class="hide-mobile">Cách chơi</a>
+        <a href="#feature2" class="hide-mobile">Giao cầu</a>
+        <a href="#summary" class="hide-mobile">Tóm tắt</a>
+        <a href="#" class="cta-btn">Đăng ký</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">
+          <span class="dot"></span>
+          <span>Tournament Edition 2026</span>
+        </div>
+        <h1>
+          Luật chơi cầu lông<br>
+          <span class="accent">đôi nam nữ</span>,<br>
+          dễ hiểu cho <span class="hl">người mới</span>.
+        </h1>
+        <p class="hero-sub">
+          Hướng dẫn đầy đủ và dễ hiểu nhất — từ cách tính điểm, luật giao cầu, đến minh hoạ tương tác ngay trên sân. Có demo phát tự động cho từng tình huống.
+        </p>
+        <div class="hero-actions">
+          <a href="#feature1" class="btn btn-primary">
+            Bắt đầu đọc <span class="arrow">→</span>
+          </a>
+          <a href="#feature2" class="btn btn-secondary">
+            Xem demo giao cầu
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-court-card">
+          <div class="floating-badge">🏸 SÂN ĐÔI</div>
+          <div class="hero-court-bg">
+            <svg class="court-svg" viewBox="0 0 400 420" preserveAspectRatio="xMidYMid meet">
+              <rect width="400" height="420" fill="#0f2c20" rx="12" />
+              <rect x="50" y="40" width="300" height="340" class="court-floor" />
+              <rect x="50" y="40" width="300" height="170" fill="#2d6a4f" opacity="0.4" />
+              <rect x="50" y="40" width="300" height="340" class="court-line thick" />
+              <line x1="50" y1="60" x2="350" y2="60" class="court-line" />
+              <line x1="50" y1="360" x2="350" y2="360" class="court-line" />
+              <line x1="50" y1="160" x2="350" y2="160" class="court-line" />
+              <line x1="50" y1="260" x2="350" y2="260" class="court-line" />
+              <line x1="200" y1="60" x2="200" y2="160" class="court-line" />
+              <line x1="200" y1="260" x2="200" y2="360" class="court-line" />
+              <line x1="50" y1="210" x2="350" y2="210" class="court-net" />
+              <text x="200" y="207" class="court-label lg" style="opacity:0.9; fill:#ffd60a; font-weight: 700;">LƯỚI · NET</text>
+              <circle cx="125" cy="100" r="10" fill="#ffd60a" stroke="#0f2c20" stroke-width="2" />
+              <circle cx="275" cy="100" r="10" fill="#ffd60a" stroke="#0f2c20" stroke-width="2" />
+              <circle cx="125" cy="320" r="10" fill="#ff5a5f" stroke="#0f2c20" stroke-width="2" />
+              <circle cx="275" cy="320" r="10" fill="#ff5a5f" stroke="#0f2c20" stroke-width="2" />
+            </svg>
+          </div>
+          <div class="hero-court-info">
+            <div class="ttl">Sân cầu lông tiêu chuẩn</div>
+            <div class="sub">13.4m × 6.1m</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-banner">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-cell">
+        <span class="num">3</span>
+        <div class="label">Ván / trận</div>
+      </div>
+      <div class="stat-cell">
+        <span class="num">21</span>
+        <div class="label">Điểm / ván</div>
+      </div>
+      <div class="stat-cell">
+        <span class="num">2<span class="small">/đội</span></span>
+        <div class="label">Cặp đôi</div>
+      </div>
+      <div class="stat-cell">
+        <span class="num">1+1</span>
+        <div class="label">Nam · Nữ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE 01 ============ -->
+<section class="feature" id="feature1">
+  <div class="container-narrow">
+    <div class="section-label"><span class="en">Feature 01</span></div>
+    <h2 class="section-title">Chuẩn bị <span class="hl">cơ bản</span></h2>
+    <p class="section-intro">
+      Trước khi vào trận, hãy nắm rõ kích thước sân, đội hình và cách bắt đầu trận đấu. Đây là 3 điều căn bản mọi người chơi cần biết.
+    </p>
+    
+    <!-- 1.1 SÂN VÀ DỤNG CỤ -->
+    <div class="sub-feature">
+      <div class="sub-num">1</div>
+      <h3>Sân, lưới và <span class="hl">dụng cụ</span></h3>
+      <p>Sân đôi rộng hơn sân đơn — bạn dùng <strong>toàn bộ vạch ngoài</strong> để xác định cầu trong hay ngoài sân.</p>
+      
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="big-num">13.4<span class="unit">m</span></div>
+          <div class="card-title">Chiều dài sân</div>
+          <div class="card-desc">Từ đường biên ngang đầu này đến đầu kia</div>
+        </div>
+        <div class="info-card">
+          <div class="big-num">6.1<span class="unit">m</span></div>
+          <div class="card-title">Chiều rộng (đôi)</div>
+          <div class="card-desc">Tính cả vạch tramline hai bên</div>
+        </div>
+        <div class="info-card warm">
+          <div class="big-num">1.55<span class="unit">m</span></div>
+          <div class="card-title">Lưới ở 2 mép</div>
+          <div class="card-desc">Tại cột — phần cao nhất</div>
+        </div>
+        <div class="info-card warm">
+          <div class="big-num">1.52<span class="unit">m</span></div>
+          <div class="card-title">Lưới ở giữa</div>
+          <div class="card-desc">Võng nhẹ xuống — chỗ thấp nhất</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 1.2 ĐỘI HÌNH -->
+    <div class="sub-feature">
+      <div class="sub-num">2</div>
+      <h3>Đội hình <span class="hl">nam nữ</span></h3>
+      <p>Mỗi đội gồm <strong>1 nam và 1 nữ</strong>. Hai người được đứng <strong>tự do</strong> trên sân — không bắt buộc ai trước, ai sau, ai đứng bên trái hay bên phải.</p>
+      <p>Chiến thuật phổ biến: đứng <strong>song song</strong> (ngang nhau) khi phòng thủ, đứng <strong>trước-sau</strong> khi tấn công. Trong giải này, bạn được tự do chọn vị trí ưa thích.</p>
+    </div>
+    
+    <!-- 1.3 BẮT ĐẦU TRẬN ĐẤU -->
+    <div class="sub-feature">
+      <div class="sub-num">3</div>
+      <h3>Bắt đầu <span class="hl">trận đấu</span></h3>
+      <p>Trước trận, hai đội <strong>tung đồng xu</strong> (hoặc xoay vợt). Đội thắng được chọn <strong>1 trong 2 quyền</strong>:</p>
+      
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="big-num">A</div>
+          <div class="card-title">Quyền giao cầu</div>
+          <div class="card-desc">Chọn giao cầu trước hoặc nhận cầu trước</div>
+        </div>
+        <div class="info-card">
+          <div class="big-num">B</div>
+          <div class="card-title">Quyền chọn sân</div>
+          <div class="card-desc">Chọn đứng bên nào của lưới</div>
+        </div>
+      </div>
+      
+      <p>Đội thua được quyền còn lại.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER 1 -->
+<div class="cta-banner-wrap">
+  <div class="cta-banner">
+    <div class="cta-banner-inner">
+      <h3>Đã nắm vững phần cơ bản? 🎯</h3>
+      <p>Tiếp theo là phần quan trọng nhất — cách tính điểm và luật giao cầu, với minh hoạ tương tác trên sân.</p>
+      <a href="#feature2" class="btn btn-primary">Học luật giao cầu →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FEATURE 02 ============ -->
+<section class="feature alt" id="feature2">
+  <div class="container-narrow">
+    <div class="section-label"><span class="en">Feature 02</span></div>
+    <h2 class="section-title">Điểm số và <span class="hl">giao cầu</span></h2>
+    <p class="section-intro">
+      Phần xương sống của trận đấu. Hệ thống điểm rally-point hiện đại + luật giao cầu chuẩn quốc tế cho đánh đôi.
+    </p>
+    
+    <!-- 2.1 CÁCH TÍNH ĐIỂM -->
+    <div class="sub-feature">
+      <div class="sub-num">1</div>
+      <h3>Cách tính <span class="hl">điểm</span></h3>
+      <p>Mỗi trận đánh <strong>3 ván</strong>, thắng 2 ván là thắng cả trận. Mỗi ván chơi đến <strong>21 điểm</strong> và phải hơn đối thủ ít nhất 2 điểm.</p>
+      
+      <table class="tbl-clean">
+        <thead>
+          <tr><th>Tình huống</th><th>Cách xử lý</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Đạt 21 trước</td><td>Thắng ván (nếu cách đối thủ ≥ 2 điểm)</td></tr>
+          <tr><td>Hoà 20–20</td><td>Đánh tiếp đến khi 1 bên hơn 2 điểm (VD: 22–20, 24–22…)</td></tr>
+          <tr><td>Hoà 29–29</td><td>Ai ghi điểm thứ <strong>30</strong> trước thì thắng ván</td></tr>
+          <tr><td>Thắng 1 pha cầu</td><td>+1 điểm <strong>và</strong> giành quyền giao cầu</td></tr>
+        </tbody>
+      </table>
+      
+      <div class="callout">
+        <div class="icon-circle">!</div>
+        <div>
+          <span class="lbl">Khác với ngày xưa</span>
+          <div class="body">Mọi pha cầu đều có điểm — không cần đang giao cầu mới được ghi điểm.</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 2.2 LUẬT GIAO CẦU -->
+    <div class="sub-feature">
+      <div class="sub-num">2</div>
+      <h3>Luật giao cầu <span class="hl">(quan trọng nhất)</span></h3>
+      <p>Đây là phần khiến người mới hay nhầm nhất. Quy tắc cơ bản chỉ cần nhớ <strong>một câu</strong>: nhìn vào điểm số của đội đang giao cầu — <strong>chẵn thì đứng bên phải, lẻ thì đứng bên trái</strong>.</p>
+      
+      <!-- INTERACTIVE SERVE DEMO -->
+      <div class="interactive-demo">
+        <div class="demo-head">
+          <div class="icon-circle">🏸</div>
+          <div class="title-block">
+            <h4>Thử ngay: vị trí giao cầu</h4>
+            <div class="sub">Bấm để xem người giao đứng ở đâu, cầu bay đến vị trí nào</div>
+          </div>
+        </div>
+        
+        <div class="serve-controls">
+          <button class="serve-btn active" data-score="even" onclick="userSetServe('even')">Điểm CHẴN (0, 2, 4...)</button>
+          <button class="serve-btn" data-score="odd" onclick="userSetServe('odd')">Điểm LẺ (1, 3, 5...)</button>
+          <div class="ctrl-divider"></div>
+          <button class="serve-btn autoplay" id="serve-autoplay" onclick="toggleServeAutoplay()">▶ Phát tự động</button>
+        </div>
+        
+        <div class="court-stage">
+          <svg viewBox="0 0 800 380" preserveAspectRatio="xMidYMid meet">
+            <rect width="800" height="380" fill="#0f2c20" />
+            <text x="180" y="25" class="court-side-label">ĐỘI A (đang giao)</text>
+            <text x="620" y="25" class="court-side-label">ĐỘI B (nhận)</text>
+            <rect x="30" y="45" width="740" height="300" class="court-floor" />
+            <rect id="zone-a-right" class="svc-zone" x="72" y="195" width="218" height="138" />
+            <rect id="zone-a-left" class="svc-zone" x="72" y="57" width="218" height="138" />
+            <rect id="zone-b-right" class="svc-zone receiver" x="510" y="57" width="218" height="138" />
+            <rect id="zone-b-left" class="svc-zone receiver" x="510" y="195" width="218" height="138" />
+            <rect x="30" y="45" width="740" height="300" class="court-line thick" />
+            <line x1="72" y1="45" x2="72" y2="345" class="court-line" />
+            <line x1="728" y1="45" x2="728" y2="345" class="court-line" />
+            <line x1="290" y1="45" x2="290" y2="345" class="court-line" />
+            <line x1="510" y1="45" x2="510" y2="345" class="court-line" />
+            <line x1="72" y1="195" x2="290" y2="195" class="court-line" />
+            <line x1="510" y1="195" x2="728" y2="195" class="court-line" />
+            <line x1="400" y1="45" x2="400" y2="345" class="court-net" />
+            <text x="181" y="130" class="court-label">LEFT SVC · A</text>
+            <text x="181" y="268" class="court-label">RIGHT SVC · A</text>
+            <text x="619" y="130" class="court-label">RIGHT SVC · B</text>
+            <text x="619" y="268" class="court-label">LEFT SVC · B</text>
+            <path id="serve-arrow" class="serve-arrow" d="M 181 264 Q 400 100, 619 105" />
+            <g id="shuttle-pos" class="shuttle-icon" transform="translate(181, 264)">
+              <circle r="14" fill="#ffd60a" stroke="#0f2c20" stroke-width="2.5" />
+              <text x="0" y="5" text-anchor="middle" font-size="14" font-weight="800" fill="#2c3e50">S</text>
+            </g>
+            <g id="receiver-pos" class="receiver-icon" transform="translate(619, 105)">
+              <circle r="14" fill="#ff5a5f" stroke="#0f2c20" stroke-width="2.5" />
+              <text x="0" y="5" text-anchor="middle" font-size="14" font-weight="800" fill="white">R</text>
+            </g>
+            <g id="flying-shuttle-serve" style="opacity: 0; pointer-events: none;">
+              <circle r="7.5" fill="white" stroke="#ffd60a" stroke-width="2.5" />
+              <circle r="2.8" fill="#ffd60a" />
+            </g>
+            <text x="400" y="365" class="court-label lg" style="fill: #ffd60a; opacity: 0.9; font-weight: 700;">LƯỚI</text>
+          </svg>
+        </div>
+        
+        <div class="demo-info">
+          <div class="info-cell">
+            <div class="lbl">Điểm của đội A</div>
+            <div class="val" id="info-score"><em>Chẵn</em> (0, 2, 4...)</div>
+          </div>
+          <div class="info-cell">
+            <div class="lbl">Người giao đứng ở</div>
+            <div class="val" id="info-server">Ô bên <em>PHẢI</em></div>
+          </div>
+          <div class="info-cell">
+            <div class="lbl">Cầu bay đến</div>
+            <div class="val" id="info-direction"><em>Chéo sân</em>, ô phải của B</div>
+          </div>
+        </div>
+      </div>
+      
+      <h4 style="font-family: var(--rounded); font-weight: 800; font-size: 20px; color: var(--ink); margin: 32px 0 14px;">Cách giao cầu <span class="hl" style="background: linear-gradient(transparent 62%, var(--accent-light) 62%); padding: 0 4px;">đúng luật</span></h4>
+      
+      <div class="checklist">
+        <div class="check-item">
+          <div class="check-icon">✓</div>
+          <div class="text">Đánh cầu từ <strong>dưới thắt lưng (eo)</strong></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">✓</div>
+          <div class="text">Đầu vợt <strong>hướng xuống</strong> khi tiếp xúc cầu</div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">✓</div>
+          <div class="text">Cả 2 chân <strong>chạm sân</strong>, không nhấc lên hay nhảy</div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">✓</div>
+          <div class="text">Giao <strong>chéo sân</strong>, một lần, không vung thử</div>
+        </div>
+      </div>
+      
+      <h4 style="font-family: var(--rounded); font-weight: 800; font-size: 20px; color: var(--ink); margin: 32px 0 14px;">Luật giao cầu trong <span class="hl" style="background: linear-gradient(transparent 62%, var(--accent-light) 62%); padding: 0 4px;">đánh đôi</span></h4>
+      
+      <p>Phần này hay nhầm với tennis. Khác biệt cốt lõi: <strong>mỗi đội chỉ có MỘT lượt giao cầu</strong> — không phải mỗi người 1 lượt.</p>
+      
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="big-num">→</div>
+          <div class="card-title">Giao thắng pha</div>
+          <div class="card-desc">Cùng người đó tiếp tục giao, <strong>chỉ đổi ô</strong> phải↔trái</div>
+        </div>
+        <div class="info-card warm">
+          <div class="big-num">⇄</div>
+          <div class="card-title">Giao thua pha</div>
+          <div class="card-desc"><strong>Mất quyền giao</strong>, đối thủ được giao cầu</div>
+        </div>
+        <div class="info-card">
+          <div class="big-num">×</div>
+          <div class="card-title">Người không nhận</div>
+          <div class="card-desc">Đồng đội của người nhận <strong>không được đỡ</strong> cầu giao</div>
+        </div>
+      </div>
+      
+      <!-- 4-PHA ROTATION DEMO -->
+      <div class="interactive-demo" style="margin-top: 28px;">
+        <div class="demo-head">
+          <div class="icon-circle">🎬</div>
+          <div class="title-block">
+            <h4>Ví dụ thực tế: 4 pha cầu đầu trận</h4>
+            <div class="sub">Đội A (An·nam + Bình·nữ) — Đội B (Cường + Dung). Bấm Phát tự động để xem!</div>
+          </div>
+        </div>
+        
+        <div class="pha-controls">
+          <button class="pha-btn active" data-pha="1" onclick="userSetPha(1)">Pha 1</button>
+          <button class="pha-btn" data-pha="2" onclick="userSetPha(2)">Pha 2</button>
+          <button class="pha-btn" data-pha="3" onclick="userSetPha(3)">Pha 3</button>
+          <button class="pha-btn" data-pha="4" onclick="userSetPha(4)">Pha 4</button>
+          <div class="ctrl-divider"></div>
+          <button class="pha-btn autoplay" id="rot-autoplay" onclick="toggleRotAutoplay()">▶ Phát tự động</button>
+        </div>
+        
+        <div class="court-stage">
+          <svg viewBox="0 0 800 380" preserveAspectRatio="xMidYMid meet">
+            <rect width="800" height="380" fill="#0f2c20" />
+            <text x="180" y="25" class="court-side-label">ĐỘI A</text>
+            <text x="620" y="25" class="court-side-label">ĐỘI B</text>
+            <rect x="30" y="45" width="740" height="300" class="court-floor" />
+            <rect id="rot-zone-server" class="svc-zone active" x="72" y="195" width="218" height="138" />
+            <rect id="rot-zone-receiver" class="svc-zone receiver active" x="510" y="57" width="218" height="138" />
+            <rect x="30" y="45" width="740" height="300" class="court-line thick" />
+            <line x1="72" y1="45" x2="72" y2="345" class="court-line" />
+            <line x1="728" y1="45" x2="728" y2="345" class="court-line" />
+            <line x1="290" y1="45" x2="290" y2="345" class="court-line" />
+            <line x1="510" y1="45" x2="510" y2="345" class="court-line" />
+            <line x1="72" y1="195" x2="290" y2="195" class="court-line" />
+            <line x1="510" y1="195" x2="728" y2="195" class="court-line" />
+            <line x1="400" y1="45" x2="400" y2="345" class="court-net" />
+            <g id="player-an" class="shuttle-icon" transform="translate(181, 264)">
+              <circle r="20" fill="#ffd60a" stroke="#0f2c20" stroke-width="2.5" />
+              <text x="0" y="5" text-anchor="middle" font-size="13" font-weight="800" fill="#2c3e50">AN</text>
+            </g>
+            <g id="player-binh" class="shuttle-icon" transform="translate(181, 126)">
+              <circle r="20" fill="#ffd60a" stroke="#0f2c20" stroke-width="2.5" />
+              <text x="0" y="5" text-anchor="middle" font-size="11" font-weight="800" fill="#2c3e50">BÌNH</text>
+            </g>
+            <g id="player-cuong" class="receiver-icon" transform="translate(619, 126)">
+              <circle r="20" fill="#ff5a5f" stroke="#0f2c20" stroke-width="2.5" />
+              <text x="0" y="5" text-anchor="middle" font-size="10" font-weight="800" fill="white">CƯỜNG</text>
+            </g>
+            <g id="player-dung" class="receiver-icon" transform="translate(619, 264)">
+              <circle r="20" fill="#ff5a5f" stroke="#0f2c20" stroke-width="2.5" />
+              <text x="0" y="5" text-anchor="middle" font-size="11" font-weight="800" fill="white">DUNG</text>
+            </g>
+            <circle id="server-indicator" cx="181" cy="295" r="4" fill="#ffd60a">
+              <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
+            </circle>
+            <g id="score-badge">
+              <rect x="340" y="155" width="120" height="40" rx="20" fill="white" />
+              <text x="400" y="180" text-anchor="middle" font-family="M PLUS Rounded 1c" font-size="18" font-weight="800" fill="#2c3e50" id="score-text">0 — 0</text>
+            </g>
+            <g id="flying-shuttle-rot" style="opacity: 0; pointer-events: none;">
+              <circle r="8.5" fill="white" stroke="#ffd60a" stroke-width="2.5" />
+              <circle r="3.2" fill="#ffd60a" />
+            </g>
+            <text x="400" y="365" class="court-label lg" style="fill: #ffd60a; opacity: 0.9; font-weight: 700;">LƯỚI</text>
+          </svg>
+        </div>
+        
+        <div class="pha-narration">
+          <div class="score-tag" id="pha-score">Tỉ số: A 0 — 0 B</div>
+          <div class="text" id="pha-text">An (đội A) giao cầu từ ô PHẢI (điểm chẵn 0), cầu bay chéo sang ô phải của B nơi Cường đứng nhận. Bình ở ô trái của A, Dung ở ô trái của B.</div>
+        </div>
+      </div>
+      
+      <div class="callout" style="margin-top: 24px;">
+        <div class="icon-circle">💡</div>
+        <div>
+          <span class="lbl">Mẹo nhớ</span>
+          <div class="body">Nhìn điểm của đội mình. <strong>Chẵn = phải, Lẻ = trái</strong>. Người đang giao chỉ đổi ô khi thắng pha, không bao giờ đổi vị trí với đồng đội giữa chừng.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER 2 -->
+<div class="cta-banner-wrap">
+  <div class="cta-banner">
+    <div class="cta-banner-inner">
+      <h3>Còn vài chi tiết quan trọng 📋</h3>
+      <p>Đổi sân, các lỗi thường gặp và thời gian nghỉ — những điều cần nhớ để tránh mất điểm oan.</p>
+      <a href="#feature3" class="btn btn-primary">Xem tiếp →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FEATURE 03 ============ -->
+<section class="feature" id="feature3">
+  <div class="container-narrow">
+    <div class="section-label"><span class="en">Feature 03</span></div>
+    <h2 class="section-title">Chi tiết <span class="hl">trận đấu</span></h2>
+    <p class="section-intro">
+      Những quy định nhỏ nhưng quan trọng: khi nào đổi sân, các lỗi nào sẽ mất điểm, và bao lâu được nghỉ giữa các ván.
+    </p>
+    
+    <!-- 3.1 ĐỔI SÂN -->
+    <div class="sub-feature">
+      <div class="sub-num">1</div>
+      <h3>Đổi <span class="hl">sân</span></h3>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="big-num">1</div>
+          <div class="card-title">Sau ván 1</div>
+          <div class="card-desc">Hai đội đổi sân cho nhau</div>
+        </div>
+        <div class="info-card">
+          <div class="big-num">2</div>
+          <div class="card-title">Sau ván 2</div>
+          <div class="card-desc">Tiếp tục đổi sân nếu có ván 3</div>
+        </div>
+        <div class="info-card warm">
+          <div class="big-num">11</div>
+          <div class="card-title">Trong ván 3</div>
+          <div class="card-desc">Khi một bên đạt 11 điểm → đổi sân giữa ván</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 3.2 CÁC LỖI -->
+    <div class="sub-feature">
+      <div class="sub-num">2</div>
+      <h3>Các lỗi <span class="hl">thường gặp</span></h3>
+      <p>Đội bạn sẽ <strong>mất điểm</strong> (đối thủ ghi điểm) nếu mắc một trong những lỗi sau:</p>
+      
+      <div class="fault-grid">
+        <div class="fault-item"><div class="num">01</div><div class="text">Cầu rơi <strong>ngoài sân</strong> (rơi trên vạch vẫn tính trong sân)</div></div>
+        <div class="fault-item"><div class="num">02</div><div class="text">Cầu <strong>chạm lưới</strong> và không qua được bên kia</div></div>
+        <div class="fault-item"><div class="num">03</div><div class="text">Cầu chạm <strong>trần, tường, người</strong> hoặc quần áo</div></div>
+        <div class="fault-item"><div class="num">04</div><div class="text">Đánh cầu <strong>2 lần liên tiếp</strong> (kể cả từ 2 người cùng đội)</div></div>
+        <div class="fault-item"><div class="num">05</div><div class="text">Vợt / người / quần áo <strong>chạm lưới</strong> khi cầu còn trong cuộc</div></div>
+        <div class="fault-item"><div class="num">06</div><div class="text">Vợt vượt qua lưới <strong>trước khi tiếp xúc cầu</strong> (đánh xong vợt theo đà qua một chút thì OK)</div></div>
+        <div class="fault-item"><div class="num">07</div><div class="text">Đứng <strong>trong phần sân đối thủ</strong> khi đánh cầu</div></div>
+        <div class="fault-item"><div class="num">08</div><div class="text"><strong>Giao cầu sai luật</strong> — quá eo, sai ô, nhấc chân, đầu vợt cao hơn tay…</div></div>
+      </div>
+    </div>
+    
+    <!-- 3.3 THỜI GIAN NGHỈ -->
+    <div class="sub-feature">
+      <div class="sub-num">3</div>
+      <h3>Thời gian <span class="hl">nghỉ</span></h3>
+      <div class="info-grid">
+        <div class="info-card warm">
+          <div class="big-num">60<span class="unit">giây</span></div>
+          <div class="card-title">Giữa ván</div>
+          <div class="card-desc">Khi 1 bên đạt 11 điểm trong ván đang đánh</div>
+        </div>
+        <div class="info-card warm">
+          <div class="big-num">120<span class="unit">giây</span></div>
+          <div class="card-title">Giữa các ván</div>
+          <div class="card-desc">2 phút nghỉ giữa ván 1↔2 và ván 2↔3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<section class="summary-section" id="summary">
+  <div class="container">
+    <div class="summary-card">
+      <div class="card-head">
+        <div class="card-tag">Tóm tắt nhanh</div>
+        <h2>6 điều <span class="hl">cốt lõi</span> cần nhớ</h2>
+      </div>
+      
+      <ol class="summary-list">
+        <li>
+          <div class="text">Đánh <strong>3 ván</strong>, mỗi ván <strong>21 điểm</strong>, phải hơn đối thủ ≥ 2 điểm.</div>
+        </li>
+        <li>
+          <div class="text">Mỗi pha thắng = <strong>1 điểm</strong> + giành <strong>quyền giao cầu</strong>.</div>
+        </li>
+        <li>
+          <div class="text">Giao cầu: nhìn điểm đội mình — <strong>chẵn thì ô phải</strong>, <strong>lẻ thì ô trái</strong>. Đánh chéo sân.</div>
+        </li>
+        <li>
+          <div class="text">Trong đôi, mỗi đội chỉ có <strong>một lượt giao cầu</strong> rồi tới đối thủ — không phải mỗi người một lượt.</div>
+        </li>
+        <li>
+          <div class="text">Cầu rơi <strong>trên vạch</strong> = trong sân, hợp lệ.</div>
+        </li>
+        <li>
+          <div class="text">Không đánh 2 chạm, không chạm lưới, không bước qua sân đối thủ.</div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-foot">
+  <div class="container">
+    <div class="foot-logo">
+      <span class="bird">🏸</span>
+      <span>Mixed Doubles</span>
+    </div>
+    <div class="tag">Chúc giải đấu thành công và fair-play!</div>
+    <div class="divider"></div>
+    <div>Luật chơi cầu lông đôi nam nữ · Phiên bản cho người mới chơi · 2026</div>
+  </div>
+</footer>
+
+<script>
+  // ===== Flying shuttle animation (parabolic arc) =====
+  function flyShuttle(id, fromX, fromY, toX, toY, duration, arcHeight) {
+    duration = duration || 1100;
+    arcHeight = arcHeight || 65;
+    const flyer = document.getElementById(id);
+    if (!flyer) return;
+    flyer.style.transition = 'none';
+    flyer.setAttribute('transform', 'translate(' + fromX + ', ' + fromY + ')');
+    flyer.style.opacity = '1';
+    const startTime = performance.now();
+    function frame(now) {
+      const elapsed = now - startTime;
+      let t = elapsed / duration;
+      if (t >= 1) {
+        flyer.setAttribute('transform', 'translate(' + toX + ', ' + toY + ')');
+        setTimeout(function() {
+          flyer.style.transition = 'opacity 0.4s ease';
+          flyer.style.opacity = '0';
+        }, 120);
+        return;
+      }
+      const eased = t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
+      const x = fromX + (toX - fromX) * eased;
+      const baseY = fromY + (toY - fromY) * eased;
+      const arc = Math.sin(t * Math.PI) * arcHeight;
+      const y = baseY - arc;
+      flyer.setAttribute('transform', 'translate(' + x + ', ' + y + ')');
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  
+  // ===== Simple serving demo =====
+  const shuttle = document.getElementById('shuttle-pos');
+  const receiver = document.getElementById('receiver-pos');
+  const arrow = document.getElementById('serve-arrow');
+  const zoneARight = document.getElementById('zone-a-right');
+  const zoneALeft = document.getElementById('zone-a-left');
+  const zoneBRight = document.getElementById('zone-b-right');
+  const zoneBLeft = document.getElementById('zone-b-left');
+  const infoScore = document.getElementById('info-score');
+  const infoServer = document.getElementById('info-server');
+  const infoDirection = document.getElementById('info-direction');
+  
+  let serveAutoplay = null;
+  let currentServe = 'even';
+  
+  function setServe(type, animate) {
+    if (animate === undefined) animate = true;
+    document.querySelectorAll('.serve-btn[data-score]').forEach(b => b.classList.remove('active'));
+    document.querySelector('.serve-btn[data-score="' + type + '"]').classList.add('active');
+    currentServe = type;
+    [zoneARight, zoneALeft, zoneBRight, zoneBLeft].forEach(z => z.classList.remove('active'));
+    let from, to;
+    if (type === 'even') {
+      shuttle.setAttribute('transform', 'translate(181, 264)');
+      receiver.setAttribute('transform', 'translate(619, 105)');
+      arrow.setAttribute('d', 'M 195 250 Q 400 100, 605 118');
+      zoneARight.classList.add('active');
+      zoneBRight.classList.add('active');
+      infoScore.innerHTML = '<em>Chẵn</em> (0, 2, 4...)';
+      infoServer.innerHTML = 'Ô bên <em>PHẢI</em>';
+      infoDirection.innerHTML = '<em>Chéo sân</em>, ô phải của B';
+      from = [181, 250]; to = [619, 120];
+    } else {
+      shuttle.setAttribute('transform', 'translate(181, 126)');
+      receiver.setAttribute('transform', 'translate(619, 264)');
+      arrow.setAttribute('d', 'M 195 140 Q 400 280, 605 251');
+      zoneALeft.classList.add('active');
+      zoneBLeft.classList.add('active');
+      infoScore.innerHTML = '<em>Lẻ</em> (1, 3, 5...)';
+      infoServer.innerHTML = 'Ô bên <em>TRÁI</em>';
+      infoDirection.innerHTML = '<em>Chéo sân</em>, ô trái của B';
+      from = [181, 140]; to = [619, 250];
+    }
+    if (animate) {
+      setTimeout(() => flyShuttle('flying-shuttle-serve', from[0], from[1], to[0], to[1], 1200, 70), 400);
+    }
+  }
+  function userSetServe(type) { stopServeAutoplay(); setServe(type); }
+  function stopServeAutoplay() {
+    if (serveAutoplay) {
+      clearInterval(serveAutoplay);
+      serveAutoplay = null;
+      const btn = document.getElementById('serve-autoplay');
+      btn.innerHTML = '\u25B6 Phát tự động';
+      btn.classList.remove('playing');
+    }
+  }
+  function toggleServeAutoplay() {
+    if (serveAutoplay) { stopServeAutoplay(); }
+    else {
+      const btn = document.getElementById('serve-autoplay');
+      btn.innerHTML = '\u23F8 Tạm dừng';
+      btn.classList.add('playing');
+      setServe(currentServe === 'even' ? 'odd' : 'even');
+      serveAutoplay = setInterval(() => {
+        setServe(currentServe === 'even' ? 'odd' : 'even');
+      }, 3800);
+    }
+  }
+  setServe('even', false);
+  
+  // ===== 4-pha rotation demo =====
+  const phaData = {
+    1: {
+      score: 'A 0 \u2014 0 B',
+      narration: 'An (đội A) giao cầu từ ô PHẢI (điểm chẵn 0), cầu bay chéo sang ô phải của B nơi Cường đứng nhận. Bình ở ô trái của A, Dung ở ô trái của B.',
+      an: [181, 264], binh: [181, 126], cuong: [619, 126], dung: [619, 264],
+      serverDot: [181, 295], scoreText: '0 \u2014 0',
+      zoneServer: ['72', '195'], zoneReceiver: ['510', '57'],
+      from: [181, 250], to: [619, 126]
+    },
+    2: {
+      score: 'A 1 \u2014 0 B (An thắng pha 1)',
+      narration: 'An vẫn giao — vì A thắng pha. Điểm A = 1 (LẺ) → An đổi sang ô TRÁI, Bình đổi sang ô PHẢI (hoán đổi với An). Bên B đứng yên — Dung trở thành người nhận (chéo với An).',
+      an: [181, 126], binh: [181, 264], cuong: [619, 126], dung: [619, 264],
+      serverDot: [181, 157], scoreText: '1 \u2014 0',
+      zoneServer: ['72', '57'], zoneReceiver: ['510', '195'],
+      from: [181, 140], to: [619, 264]
+    },
+    3: {
+      score: 'A 2 \u2014 0 B (An thắng pha 2)',
+      narration: 'An tiếp tục giao — A thắng tiếp pha 2. Điểm A = 2 (CHẴN) → An về lại ô PHẢI, Bình đổi sang ô TRÁI. Bên B không đổi — Cường thành người nhận.',
+      an: [181, 264], binh: [181, 126], cuong: [619, 126], dung: [619, 264],
+      serverDot: [181, 295], scoreText: '2 \u2014 0',
+      zoneServer: ['72', '195'], zoneReceiver: ['510', '57'],
+      from: [181, 250], to: [619, 126]
+    },
+    4: {
+      score: 'A 2 \u2014 1 B (Đội B thắng pha)',
+      narration: 'Đội B thắng pha → giành quyền giao. Điểm B = 1 (LẺ) → người giao bên B phải đứng ô TRÁI = Dung. Bên B không đổi chỗ, chỉ chuyển từ "nhận" sang "giao". Bên A: người chéo với Dung là Bình → Bình nhận cầu.',
+      an: [181, 264], binh: [181, 126], cuong: [619, 126], dung: [619, 264],
+      serverDot: [619, 295], scoreText: '2 \u2014 1',
+      zoneServer: ['510', '195'], zoneReceiver: ['72', '57'],
+      from: [619, 250], to: [181, 126]
+    }
+  };
+  
+  let currentRotPha = 1;
+  let rotAutoplay = null;
+  
+  function setPha(n, animate) {
+    if (animate === undefined) animate = true;
+    document.querySelectorAll('.pha-btn[data-pha]').forEach(b => b.classList.remove('active'));
+    const btn = document.querySelector('.pha-btn[data-pha="' + n + '"]');
+    if (btn) btn.classList.add('active');
+    currentRotPha = n;
+    const d = phaData[n];
+    document.getElementById('player-an').setAttribute('transform', 'translate(' + d.an[0] + ', ' + d.an[1] + ')');
+    document.getElementById('player-binh').setAttribute('transform', 'translate(' + d.binh[0] + ', ' + d.binh[1] + ')');
+    document.getElementById('player-cuong').setAttribute('transform', 'translate(' + d.cuong[0] + ', ' + d.cuong[1] + ')');
+    document.getElementById('player-dung').setAttribute('transform', 'translate(' + d.dung[0] + ', ' + d.dung[1] + ')');
+    const dot = document.getElementById('server-indicator');
+    dot.setAttribute('cx', d.serverDot[0]);
+    dot.setAttribute('cy', d.serverDot[1]);
+    document.getElementById('score-text').textContent = d.scoreText;
+    document.getElementById('pha-score').textContent = 'Tỉ số: ' + d.score;
+    document.getElementById('pha-text').textContent = d.narration;
+    const zoneServer = document.getElementById('rot-zone-server');
+    const zoneReceiver = document.getElementById('rot-zone-receiver');
+    zoneServer.setAttribute('x', d.zoneServer[0]);
+    zoneServer.setAttribute('y', d.zoneServer[1]);
+    zoneReceiver.setAttribute('x', d.zoneReceiver[0]);
+    zoneReceiver.setAttribute('y', d.zoneReceiver[1]);
+    if (animate) {
+      setTimeout(() => flyShuttle('flying-shuttle-rot', d.from[0], d.from[1], d.to[0], d.to[1], 1300, 80), 700);
+    }
+  }
+  function userSetPha(n) { stopRotAutoplay(); setPha(n); }
+  function stopRotAutoplay() {
+    if (rotAutoplay) {
+      clearInterval(rotAutoplay);
+      rotAutoplay = null;
+      const btn = document.getElementById('rot-autoplay');
+      btn.innerHTML = '\u25B6 Phát tự động';
+      btn.classList.remove('playing');
+    }
+  }
+  function toggleRotAutoplay() {
+    if (rotAutoplay) { stopRotAutoplay(); }
+    else {
+      const btn = document.getElementById('rot-autoplay');
+      btn.innerHTML = '\u23F8 Tạm dừng';
+      btn.classList.add('playing');
+      const next = currentRotPha >= 4 ? 1 : currentRotPha + 1;
+      setPha(next);
+      rotAutoplay = setInterval(() => {
+        const next = currentRotPha >= 4 ? 1 : currentRotPha + 1;
+        setPha(next);
+      }, 5500);
+    }
+  }
+  setPha(1, false);
+</script>
+
+</body>
+</html>
