@@ -1097,6 +1097,58 @@
     .ag-dot { width: 14px; height: 14px; margin-top: 17px; }
     .ag-card { margin-left: 10px; }
   }
+
+  /* ===== GROUP STAGE ===== */
+  .group-split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0 4px; align-items: start; }
+  @media (max-width: 620px) { .group-split { grid-template-columns: 1fr; } }
+  .group-card {
+    border-radius: 18px; padding: 22px;
+    border: 2px solid var(--primary-light);
+    background: linear-gradient(135deg, var(--primary-ultralight), white);
+  }
+  .group-card.b { border-color: var(--accent); background: linear-gradient(135deg, var(--accent-light), #fffaf0); }
+  .group-card .gc-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .group-card .gc-badge {
+    width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--rounded); font-weight: 800; font-size: 22px; color: white; background: var(--primary);
+  }
+  .group-card.b .gc-badge { background: var(--accent); color: var(--ink); }
+  .group-card .gc-title { font-family: var(--rounded); font-weight: 800; font-size: 17px; color: var(--ink); line-height: 1.2; }
+  .group-card .gc-sub { font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+  .group-card .gc-teams { display: grid; gap: 8px; }
+  .gc-team {
+    display: flex; align-items: center; gap: 10px; background: white;
+    border-radius: 10px; padding: 9px 13px; border: 1px solid var(--border);
+    font-family: var(--rounded); font-weight: 700; font-size: 14px; color: var(--ink);
+  }
+  .gc-foot { margin-top: 14px; font-size: 13px; color: var(--ink-mid); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .gc-foot .adv {
+    background: var(--cta); color: white; border-radius: 999px; padding: 3px 11px;
+    font-family: var(--rounded); font-weight: 800; font-size: 11px; letter-spacing: 0.04em;
+  }
+
+  /* Qualifying rows in standings */
+  .standings-table tr.q td { background: var(--primary-ultralight); }
+  .standings-table tr.q .rank-num { color: var(--cta-dark); }
+  .qual-tag {
+    display: inline-block; background: var(--cta); color: white;
+    border-radius: 999px; padding: 2px 9px; font-family: var(--rounded);
+    font-weight: 800; font-size: 10px; letter-spacing: 0.03em;
+  }
+  .standings-mini { overflow-x: auto; }
+  .standings-mini .standings-table { min-width: 0; }
+  .standings-mini .standings-table th, .standings-mini .standings-table td { padding: 10px 8px; }
+
+  /* ===== PLAYOFF BRACKET (semifinals) ===== */
+  .po-semis { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 8px 0 4px; }
+  @media (max-width: 620px) { .po-semis { grid-template-columns: 1fr; } }
+  .po-final.semi { background: var(--primary-ultralight); border-color: var(--primary-light); }
+  .po-feed { font-size: 12px; color: var(--ink-mid); text-align: center; font-family: var(--rounded); font-weight: 700; }
+  .po-connect {
+    text-align: center; font-family: var(--rounded); font-weight: 800;
+    font-size: 24px; color: var(--primary); margin: 6px 0 2px; line-height: 1;
+  }
 </style>
 </head>
 <body>
@@ -1115,7 +1167,6 @@
         <a href="#feature2" class="hide-mobile">Giao cầu</a>
         <a href="#feature4" class="hide-mobile">Luật khác</a>
         <a href="#summary" class="hide-mobile">Tóm tắt</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5zetg6bMEgrt6ljgUHlsoel6j7EcfVQhVNRH8RN1NveNszA/viewform" target="_blank" rel="noopener noreferrer" class="cta-btn">Đăng ký</a>
       </div>
     </div>
   </div>
@@ -1187,20 +1238,20 @@
   <div class="container">
     <div class="stats-grid">
       <div class="stat-cell">
-        <span class="num">6</span>
+        <span class="num">7</span>
         <div class="label">Đội tham gia</div>
       </div>
       <div class="stat-cell">
-        <span class="num">1+1</span>
-        <div class="label">Nam · Nữ</div>
+        <span class="num">2</span>
+        <div class="label">Bảng đấu</div>
       </div>
       <div class="stat-cell">
         <span class="num">21</span>
         <div class="label">Điểm / ván (vòng bảng)</div>
       </div>
       <div class="stat-cell">
-        <span class="num">Top<span class="small"> 4</span></span>
-        <div class="label">Vào play-off</div>
+        <span class="num">Top<span class="small"> 2</span></span>
+        <div class="label">Mỗi bảng vào PO</div>
       </div>
     </div>
   </div>
@@ -1212,7 +1263,7 @@
     <div class="section-label"><span class="en">Tournament Format</span></div>
     <h2 class="section-title">Thể thức & <span class="hl">Lịch thi đấu</span></h2>
     <p class="section-intro">
-      Giải gồm <strong>2 giai đoạn</strong>: vòng tròn tính điểm để xếp hạng, sau đó Top 4 đội vào vòng play-off tranh giải Nhất – Nhì – Ba – Khuyến khích.
+      Giải gồm <strong>2 giai đoạn</strong>: 7 đội chia <strong>2 bảng</strong> đấu vòng tròn nội bộ để xếp hạng, sau đó <strong>2 đội mạnh nhất mỗi bảng</strong> vào vòng play-off tranh giải Nhất – Nhì – Ba – Khuyến khích.
     </p>
     
     <div class="container-narrow" style="padding: 0;">
@@ -1220,87 +1271,85 @@
       <div class="phase-flow">
         <div class="phase-box">
           <span class="ph-tag">Giai đoạn 1</span>
-          <h5>Vòng tròn tính điểm</h5>
-          <p>6 đội đấu vòng tròn, mỗi đội 5 trận. Mỗi trận 1 ván 21 điểm — thắng +2, thua 0 điểm. Tổng 15 trận.</p>
+          <h5>Vòng bảng</h5>
+          <p>7 đội chia 2 bảng — Bảng A (4 đội), Bảng B (3 đội). Mỗi bảng đấu vòng tròn nội bộ, 1 ván 21 điểm — thắng +2, thua 0 điểm. Tổng 9 trận.</p>
         </div>
         <div class="phase-arrow">→</div>
         <div class="phase-box gold">
           <span class="ph-tag">Giai đoạn 2</span>
           <h5>Play-off tranh giải</h5>
-          <p>Top 4 đội theo BXH tranh giải: Hạng 1 – Hạng 2 (Nhất–Nhì) và Hạng 3 – Hạng 4 (Ba–Khuyến khích). Mỗi trận đánh 3 ván, mỗi ván 15 điểm.</p>
+          <p>Top 2 mỗi bảng (4 đội) ghép chéo: 2 bán kết → chung kết tranh Nhất–Nhì và trận tranh hạng Ba. Mỗi trận đánh 3 ván, mỗi ván 15 điểm.</p>
         </div>
       </div>
     </div>
     
     <div class="info-grid" style="max-width: 900px; margin: 24px auto 36px;">
       <div class="info-card">
-        <div class="big-num">6</div>
+        <div class="big-num">7</div>
         <div class="card-title">Đội tham gia</div>
         <div class="card-desc">Mỗi đội 1 cặp nam–nữ</div>
       </div>
       <div class="info-card">
-        <div class="big-num">21<span class="unit">đ</span></div>
-        <div class="card-title">Mỗi trận</div>
-        <div class="card-desc">Đánh 1 ván 21 điểm</div>
-      </div>
-      <div class="info-card warm">
-        <div class="big-num">15</div>
-        <div class="card-title">Trận vòng bảng</div>
-        <div class="card-desc">5 lượt × 3 trận</div>
-      </div>
-      <div class="info-card warm">
         <div class="big-num">2</div>
+        <div class="card-title">Bảng đấu</div>
+        <div class="card-desc">Bảng A 4 đội · Bảng B 3 đội</div>
+      </div>
+      <div class="info-card warm">
+        <div class="big-num">9</div>
+        <div class="card-title">Trận vòng bảng</div>
+        <div class="card-desc">Bảng A 6 trận · Bảng B 3 trận</div>
+      </div>
+      <div class="info-card warm">
+        <div class="big-num">4</div>
         <div class="card-title">Trận play-off</div>
-        <div class="card-desc">Mỗi trận 3 ván · 15 điểm/ván</div>
+        <div class="card-desc">2 bán kết + chung kết + tranh Ba</div>
       </div>
     </div>
     
     <div class="container-narrow" style="padding: 0;">
-      <!-- 1. WHEEL -->
+      <!-- 1. GROUP SPLIT -->
       <div class="sub-feature">
         <div class="sub-num">1</div>
-        <h3>Vòng tròn <span class="hl">là gì?</span></h3>
-        <p>Thể thức vòng tròn nghĩa là <strong>mọi đội đều gặp nhau</strong>. Nhìn sơ đồ: mỗi đội (chấm tròn màu) được nối với 5 đội còn lại bằng một đường — mỗi đường chính là <strong>một trận đấu</strong>.</p>
-        <div class="rr-wheel-card">
-          <div class="wheel-text">
-            <h5>6 đội · ai cũng gặp ai</h5>
-            <p>Đếm số đường nối, bạn sẽ thấy đúng <strong>15 đường</strong> — tương ứng 15 trận. Mỗi trận đánh <strong>1 ván 21 điểm</strong>: đội thắng được <strong>2 điểm</strong>, đội thua <strong>0 điểm</strong>.</p>
-            <div class="pillrow">
-              <span class="rr-pill"><span class="n">6</span> đội</span>
-              <span class="rr-pill"><span class="n">15</span> trận</span>
-              <span class="rr-pill"><span class="n">+2</span> điểm/thắng</span>
+        <h3>Chia <span class="hl">2 bảng</span> đấu vòng tròn</h3>
+        <p>7 đội được chia thành <strong>2 bảng</strong>. Trong mỗi bảng, các đội đấu <strong>vòng tròn nội bộ</strong> — ai cũng gặp ai một lần. <strong>2 đội đứng đầu mỗi bảng</strong> giành vé vào vòng play-off.</p>
+        <div class="group-split">
+          <div class="group-card">
+            <div class="gc-head">
+              <span class="gc-badge">A</span>
+              <div>
+                <div class="gc-title">Bảng A</div>
+                <div class="gc-sub">4 đội · đấu vòng tròn · 6 trận</div>
+              </div>
             </div>
+            <div class="gc-teams">
+              <div class="gc-team"><span class="team-dot" style="background:#00a4dc"></span>Đội 1</div>
+              <div class="gc-team"><span class="team-dot" style="background:#ff5a5f"></span>Đội 2</div>
+              <div class="gc-team"><span class="team-dot" style="background:#ffb703"></span>Đội 3</div>
+              <div class="gc-team"><span class="team-dot" style="background:#2a9d8f"></span>Đội 4</div>
+            </div>
+            <div class="gc-foot"><span class="adv">TOP 2</span> vào play-off · mỗi đội đá 3 trận</div>
           </div>
+          <div class="group-card b">
+            <div class="gc-head">
+              <span class="gc-badge">B</span>
+              <div>
+                <div class="gc-title">Bảng B</div>
+                <div class="gc-sub">3 đội · đấu vòng tròn · 3 trận</div>
+              </div>
+            </div>
+            <div class="gc-teams">
+              <div class="gc-team"><span class="team-dot" style="background:#8338ec"></span>Đội 5</div>
+              <div class="gc-team"><span class="team-dot" style="background:#fb6f92"></span>Đội 6</div>
+              <div class="gc-team"><span class="team-dot" style="background:#3a86ff"></span>Đội 7</div>
+            </div>
+            <div class="gc-foot"><span class="adv">TOP 2</span> vào play-off · mỗi đội đá 2 trận</div>
+          </div>
+        </div>
+        <div class="callout" style="margin-top: 18px;">
+          <div class="icon-circle">i</div>
           <div>
-            <svg class="rr-wheel-svg" viewBox="0 0 420 420" preserveAspectRatio="xMidYMid meet">
-        <line x1="210" y1="60" x2="340" y2="135" stroke="#c7d6e0" stroke-width="2" opacity="0.7" />
-        <line x1="210" y1="60" x2="340" y2="285" stroke="#c7d6e0" stroke-width="2" opacity="0.7" />
-        <line x1="210" y1="60" x2="210" y2="360" stroke="#c7d6e0" stroke-width="2" opacity="0.7" />
-        <line x1="210" y1="60" x2="80" y2="285" stroke="#c7d6e0" stroke-width="2" opacity="0.7" />
-        <line x1="210" y1="60" x2="80" y2="135" stroke="#c7d6e0" stroke-width="2" opacity="0.7" />
-        <line x1="340" y1="135" x2="340" y2="285" stroke="#c7d6e0" stroke-width="2" opacity="0.7" />
-        <line x1="340" y1="135" x2="210" y2="360" stroke="#c7d6e0" stroke-width="2" opacity="0.7" />
-        <line x1="340" y1="135" x2="80" y2="285" stroke="#c7d6e0" stroke-width="2" opacity="0.7" />
-        <line x1="340" y1="135" x2="80" y2="135" stroke="#c7d6e0" stroke-width="2" opacity="0.7" />
-        <line x1="340" y1="285" x2="210" y2="360" stroke="#c7d6e0" stroke-width="2" opacity="0.7" />
-        <line x1="340" y1="285" x2="80" y2="285" stroke="#c7d6e0" stroke-width="2" opacity="0.7" />
-        <line x1="340" y1="285" x2="80" y2="135" stroke="#c7d6e0" stroke-width="2" opacity="0.7" />
-        <line x1="210" y1="360" x2="80" y2="285" stroke="#c7d6e0" stroke-width="2" opacity="0.7" />
-        <line x1="210" y1="360" x2="80" y2="135" stroke="#c7d6e0" stroke-width="2" opacity="0.7" />
-        <line x1="80" y1="285" x2="80" y2="135" stroke="#c7d6e0" stroke-width="2" opacity="0.7" />
-        <circle cx="210" cy="60" r="27" fill="#00a4dc" stroke="white" stroke-width="3" />
-        <text x="210" y="66" text-anchor="middle" font-family="M PLUS Rounded 1c" font-weight="800" font-size="18" fill="white">1</text>
-        <circle cx="340" cy="135" r="27" fill="#ff5a5f" stroke="white" stroke-width="3" />
-        <text x="340" y="141" text-anchor="middle" font-family="M PLUS Rounded 1c" font-weight="800" font-size="18" fill="white">2</text>
-        <circle cx="340" cy="285" r="27" fill="#ffb703" stroke="white" stroke-width="3" />
-        <text x="340" y="291" text-anchor="middle" font-family="M PLUS Rounded 1c" font-weight="800" font-size="18" fill="white">3</text>
-        <circle cx="210" cy="360" r="27" fill="#2a9d8f" stroke="white" stroke-width="3" />
-        <text x="210" y="366" text-anchor="middle" font-family="M PLUS Rounded 1c" font-weight="800" font-size="18" fill="white">4</text>
-        <circle cx="80" cy="285" r="27" fill="#8338ec" stroke="white" stroke-width="3" />
-        <text x="80" y="291" text-anchor="middle" font-family="M PLUS Rounded 1c" font-weight="800" font-size="18" fill="white">5</text>
-        <circle cx="80" cy="135" r="27" fill="#fb6f92" stroke="white" stroke-width="3" />
-        <text x="80" y="141" text-anchor="middle" font-family="M PLUS Rounded 1c" font-weight="800" font-size="18" fill="white">6</text>
-      </svg>
+            <span class="lbl">Vì sao chia bảng?</span>
+            <div class="body">Với 7 đội, đấu vòng tròn toàn giải sẽ rất nhiều trận và khó xếp lịch. Chia 2 bảng giúp <strong>rút gọn số trận</strong> mà vẫn chọn ra 4 đội mạnh nhất vào play-off. Lưu ý: Bảng A có 4 đội nên mỗi đội đá 3 trận, Bảng B có 3 đội nên mỗi đội đá 2 trận.</div>
           </div>
         </div>
       </div>
@@ -1308,212 +1357,122 @@
       <!-- 2. SCHEDULE -->
       <div class="sub-feature">
         <div class="sub-num">2</div>
-        <h3>Lịch thi đấu <span class="hl">chi tiết</span></h3>
-        <p>15 trận chia thành <strong>5 lượt</strong>, mỗi lượt 3 trận diễn ra song song. Trong mỗi lượt, <strong>cả 6 đội đều ra sân</strong> — không đội nào phải ngồi chờ.</p>
+        <h3>Lịch thi đấu <span class="hl">vòng bảng</span></h3>
+        <p>Mỗi bảng đấu vòng tròn riêng. <strong>Bảng A</strong> (4 đội) có 3 lượt, mỗi lượt 2 trận. <strong>Bảng B</strong> (3 đội) có 3 lượt, mỗi lượt 1 trận — 1 đội được nghỉ luân phiên. Tổng cộng <strong>9 trận</strong>.</p>
+
+        <div class="round-title" style="margin-top: 6px;"><span class="pill">🅰️ Bảng A · 6 trận</span></div>
+        <div class="sched-rounds" style="margin-bottom: 20px;">
+        <div class="round-card">
+          <div class="rc-head">
+            <span class="rc-badge">A1</span>
+            <span class="rc-title">Lượt 1</span>
+            <span class="rc-note">2 trận</span>
+          </div>
+          <div class="vs-grid" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="vs-card">
+            <span class="vs-team"><span class="team-dot" style="background:#00a4dc"></span>Đội 1</span>
+            <span class="vs-mid">VS</span>
+            <span class="vs-team right"><span class="team-dot" style="background:#2a9d8f"></span>Đội 4</span>
+          </div>
+          <div class="vs-card">
+            <span class="vs-team"><span class="team-dot" style="background:#ff5a5f"></span>Đội 2</span>
+            <span class="vs-mid">VS</span>
+            <span class="vs-team right"><span class="team-dot" style="background:#ffb703"></span>Đội 3</span>
+          </div>
+          </div>
+        </div>
+        <div class="round-card">
+          <div class="rc-head">
+            <span class="rc-badge">A2</span>
+            <span class="rc-title">Lượt 2</span>
+            <span class="rc-note">2 trận</span>
+          </div>
+          <div class="vs-grid" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="vs-card">
+            <span class="vs-team"><span class="team-dot" style="background:#00a4dc"></span>Đội 1</span>
+            <span class="vs-mid">VS</span>
+            <span class="vs-team right"><span class="team-dot" style="background:#ffb703"></span>Đội 3</span>
+          </div>
+          <div class="vs-card">
+            <span class="vs-team"><span class="team-dot" style="background:#ff5a5f"></span>Đội 2</span>
+            <span class="vs-mid">VS</span>
+            <span class="vs-team right"><span class="team-dot" style="background:#2a9d8f"></span>Đội 4</span>
+          </div>
+          </div>
+        </div>
+        <div class="round-card">
+          <div class="rc-head">
+            <span class="rc-badge">A3</span>
+            <span class="rc-title">Lượt 3</span>
+            <span class="rc-note">2 trận</span>
+          </div>
+          <div class="vs-grid" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="vs-card">
+            <span class="vs-team"><span class="team-dot" style="background:#00a4dc"></span>Đội 1</span>
+            <span class="vs-mid">VS</span>
+            <span class="vs-team right"><span class="team-dot" style="background:#ff5a5f"></span>Đội 2</span>
+          </div>
+          <div class="vs-card">
+            <span class="vs-team"><span class="team-dot" style="background:#ffb703"></span>Đội 3</span>
+            <span class="vs-mid">VS</span>
+            <span class="vs-team right"><span class="team-dot" style="background:#2a9d8f"></span>Đội 4</span>
+          </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="round-title"><span class="pill">🅱️ Bảng B · 3 trận</span></div>
         <div class="sched-rounds">
         <div class="round-card">
           <div class="rc-head">
-            <span class="rc-badge">L1</span>
+            <span class="rc-badge">B1</span>
             <span class="rc-title">Lượt 1</span>
-            <span class="rc-note">3 trận · cả 6 đội thi đấu</span>
+            <span class="rc-note">Đội 7 nghỉ</span>
           </div>
-          <div class="vs-grid">
+          <div class="vs-grid" style="grid-template-columns: 1fr;">
           <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#00a4dc"></span>Đội 1</span>
+            <span class="vs-team"><span class="team-dot" style="background:#8338ec"></span>Đội 5</span>
             <span class="vs-mid">VS</span>
             <span class="vs-team right"><span class="team-dot" style="background:#fb6f92"></span>Đội 6</span>
-          </div>
-          <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#ff5a5f"></span>Đội 2</span>
-            <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#8338ec"></span>Đội 5</span>
-          </div>
-          <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#ffb703"></span>Đội 3</span>
-            <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#2a9d8f"></span>Đội 4</span>
           </div>
           </div>
         </div>
         <div class="round-card">
           <div class="rc-head">
-            <span class="rc-badge">L2</span>
+            <span class="rc-badge">B2</span>
             <span class="rc-title">Lượt 2</span>
-            <span class="rc-note">3 trận · cả 6 đội thi đấu</span>
+            <span class="rc-note">Đội 6 nghỉ</span>
           </div>
-          <div class="vs-grid">
+          <div class="vs-grid" style="grid-template-columns: 1fr;">
           <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#00a4dc"></span>Đội 1</span>
+            <span class="vs-team"><span class="team-dot" style="background:#8338ec"></span>Đội 5</span>
             <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#8338ec"></span>Đội 5</span>
-          </div>
-          <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#fb6f92"></span>Đội 6</span>
-            <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#2a9d8f"></span>Đội 4</span>
-          </div>
-          <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#ff5a5f"></span>Đội 2</span>
-            <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#ffb703"></span>Đội 3</span>
+            <span class="vs-team right"><span class="team-dot" style="background:#3a86ff"></span>Đội 7</span>
           </div>
           </div>
         </div>
         <div class="round-card">
           <div class="rc-head">
-            <span class="rc-badge">L3</span>
+            <span class="rc-badge">B3</span>
             <span class="rc-title">Lượt 3</span>
-            <span class="rc-note">3 trận · cả 6 đội thi đấu</span>
+            <span class="rc-note">Đội 5 nghỉ</span>
           </div>
-          <div class="vs-grid">
-          <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#00a4dc"></span>Đội 1</span>
-            <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#2a9d8f"></span>Đội 4</span>
-          </div>
-          <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#8338ec"></span>Đội 5</span>
-            <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#ffb703"></span>Đội 3</span>
-          </div>
+          <div class="vs-grid" style="grid-template-columns: 1fr;">
           <div class="vs-card">
             <span class="vs-team"><span class="team-dot" style="background:#fb6f92"></span>Đội 6</span>
             <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#ff5a5f"></span>Đội 2</span>
-          </div>
-          </div>
-        </div>
-        <div class="round-card">
-          <div class="rc-head">
-            <span class="rc-badge">L4</span>
-            <span class="rc-title">Lượt 4</span>
-            <span class="rc-note">3 trận · cả 6 đội thi đấu</span>
-          </div>
-          <div class="vs-grid">
-          <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#00a4dc"></span>Đội 1</span>
-            <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#ffb703"></span>Đội 3</span>
-          </div>
-          <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#2a9d8f"></span>Đội 4</span>
-            <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#ff5a5f"></span>Đội 2</span>
-          </div>
-          <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#8338ec"></span>Đội 5</span>
-            <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#fb6f92"></span>Đội 6</span>
-          </div>
-          </div>
-        </div>
-        <div class="round-card">
-          <div class="rc-head">
-            <span class="rc-badge">L5</span>
-            <span class="rc-title">Lượt 5</span>
-            <span class="rc-note">3 trận · cả 6 đội thi đấu</span>
-          </div>
-          <div class="vs-grid">
-          <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#00a4dc"></span>Đội 1</span>
-            <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#ff5a5f"></span>Đội 2</span>
-          </div>
-          <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#ffb703"></span>Đội 3</span>
-            <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#fb6f92"></span>Đội 6</span>
-          </div>
-          <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#2a9d8f"></span>Đội 4</span>
-            <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#8338ec"></span>Đội 5</span>
+            <span class="vs-team right"><span class="team-dot" style="background:#3a86ff"></span>Đội 7</span>
           </div>
           </div>
         </div>
         </div>
       </div>
       
-      <!-- 3. FIXTURE GRID -->
+      <!-- 3. RANKING -->
       <div class="sub-feature">
         <div class="sub-num">3</div>
-        <h3>Bảng gặp gỡ <span class="hl">(ai gặp ai, lượt mấy)</span></h3>
-        <p>Tra nhanh: tìm đội ở hàng ngang và đội ở cột dọc, ô giao nhau cho biết hai đội gặp nhau ở <strong>lượt nào</strong>. Ví dụ: Đội 1 gặp Đội 4 ở <strong>Lượt 3</strong>.</p>
-        <div class="fixture-wrap">
-          <table class="fixture-grid">
-            <tr>
-          <th class="corner"></th>
-          <th>Đội 1</th>
-          <th>Đội 2</th>
-          <th>Đội 3</th>
-          <th>Đội 4</th>
-          <th>Đội 5</th>
-          <th>Đội 6</th>
-            </tr>
-        <tr>
-          <th>Đội 1</th>
-          <td class="self">—</td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">5</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">4</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">3</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">2</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">1</span></td>
-        </tr>
-        <tr>
-          <th>Đội 2</th>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">5</span></td>
-          <td class="self">—</td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">2</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">4</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">1</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">3</span></td>
-        </tr>
-        <tr>
-          <th>Đội 3</th>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">4</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">2</span></td>
-          <td class="self">—</td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">1</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">3</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">5</span></td>
-        </tr>
-        <tr>
-          <th>Đội 4</th>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">3</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">4</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">1</span></td>
-          <td class="self">—</td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">5</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">2</span></td>
-        </tr>
-        <tr>
-          <th>Đội 5</th>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">2</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">1</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">3</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">5</span></td>
-          <td class="self">—</td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">4</span></td>
-        </tr>
-        <tr>
-          <th>Đội 6</th>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">1</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">3</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">5</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">2</span></td>
-          <td class="cell"><span class="lr">Lượt</span><span class="ln">4</span></td>
-          <td class="self">—</td>
-        </tr>
-          </table>
-        </div>
-        <div class="fixture-legend">Ô chéo (—) là chính đội đó — không tự đấu với mình.</div>
-      </div>
-      
-      <!-- 4. RANKING -->
-      <div class="sub-feature">
-        <div class="sub-num">4</div>
-        <h3>Xếp hạng & <span class="hl">chọn Top 4</span></h3>
-        <p>Sau khi cả 15 trận vòng bảng kết thúc (không còn đội nào phải chờ), tổng kết bảng xếp hạng. Đội thắng mỗi trận được:</p>
+        <h3>Xếp hạng trong bảng & <span class="hl">chọn Top 2</span></h3>
+        <p>Khi một bảng đá xong hết các trận, tổng kết bảng xếp hạng <strong>riêng cho bảng đó</strong>. Mỗi trận thắng được:</p>
         <div class="pts-illu">
           <div class="pts-box win">
             <div class="label">🏆 Thắng 1 trận</div>
@@ -1532,21 +1491,57 @@
           <li><div class="c-text"><strong>Đối đầu trực tiếp</strong> — nếu 2 đội bằng điểm, ai thắng trận gặp nhau xếp trên.</div></li>
           <li><div class="c-text"><strong>Hiệu số điểm</strong> — tổng điểm ghi trừ tổng điểm bị ghi qua các trận.</div></li>
         </ol>
-        <div class="callout" style="margin-top: 8px;">
+
+        <p style="margin-top: 18px;">Bảng xếp hạng sẽ được điền sau khi có kết quả — <strong>2 đội đầu mỗi bảng</strong> (tô đậm) giành vé play-off:</p>
+        <div class="group-split">
+          <div>
+            <div class="round-title"><span class="pill">🅰️ Bảng A</span></div>
+            <div class="standings-mini">
+              <table class="standings-table">
+                <thead>
+                  <tr><th>#</th><th>Đội</th><th>Trận</th><th>Thắng</th><th>Điểm</th><th>Vé</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="q"><td class="rank-num">1</td><td>Nhất bảng A</td><td>3</td><td>—</td><td class="pts">—</td><td><span class="qual-tag">PO</span></td></tr>
+                  <tr class="q"><td class="rank-num">2</td><td>Nhì bảng A</td><td>3</td><td>—</td><td class="pts">—</td><td><span class="qual-tag">PO</span></td></tr>
+                  <tr><td class="rank-num">3</td><td>Hạng 3</td><td>3</td><td>—</td><td class="pts">—</td><td>—</td></tr>
+                  <tr><td class="rank-num">4</td><td>Hạng 4</td><td>3</td><td>—</td><td class="pts">—</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <div class="round-title"><span class="pill">🅱️ Bảng B</span></div>
+            <div class="standings-mini">
+              <table class="standings-table">
+                <thead>
+                  <tr><th>#</th><th>Đội</th><th>Trận</th><th>Thắng</th><th>Điểm</th><th>Vé</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="q"><td class="rank-num">1</td><td>Nhất bảng B</td><td>2</td><td>—</td><td class="pts">—</td><td><span class="qual-tag">PO</span></td></tr>
+                  <tr class="q"><td class="rank-num">2</td><td>Nhì bảng B</td><td>2</td><td>—</td><td class="pts">—</td><td><span class="qual-tag">PO</span></td></tr>
+                  <tr><td class="rank-num">3</td><td>Hạng 3</td><td>2</td><td>—</td><td class="pts">—</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top: 18px;">
           <div class="icon-circle">!</div>
           <div>
             <span class="lbl">Quan trọng</span>
-            <div class="body"><strong>Top 4 đội</strong> xếp cao nhất sẽ giành vé vào vòng play-off. Không dùng "tổng điểm ghi được" làm tiêu chí chính, vì cách đó thưởng cho trận kéo dài chứ không thưởng cho đội mạnh.</div>
+            <div class="body"><strong>Top 2 mỗi bảng</strong> (Nhất A, Nhì A, Nhất B, Nhì B) = đúng <strong>4 đội</strong> vào play-off. Không dùng "tổng điểm ghi được" làm tiêu chí chính, vì cách đó thưởng cho trận kéo dài chứ không thưởng cho đội mạnh.</div>
           </div>
         </div>
       </div>
       
-      <!-- 5. PLAYOFF -->
+      <!-- 4. PLAYOFF -->
       <div class="sub-feature">
-        <div class="sub-num">5</div>
+        <div class="sub-num">4</div>
         <h3>Vòng play-off <span class="hl">— tranh giải</span></h3>
-        <p>4 đội mạnh nhất theo bảng xếp hạng tranh giải trực tiếp — <strong>không qua bán kết</strong>: <strong>Hạng 1 gặp Hạng 2</strong> tranh Nhất–Nhì, <strong>Hạng 3 gặp Hạng 4</strong> tranh Ba–Khuyến khích.</p>
-        
+        <p>4 đội vượt qua vòng bảng ghép chéo ở <strong>2 trận bán kết</strong>: <strong>Nhất bảng A gặp Nhì bảng B</strong> và <strong>Nhất bảng B gặp Nhì bảng A</strong>. Hai đội thắng vào <strong>chung kết</strong> tranh Nhất–Nhì; hai đội thua đấu <strong>tranh hạng Ba</strong>.</p>
+
         <div class="callout" style="margin: 16px 0;">
           <div class="icon-circle">!</div>
           <div>
@@ -1554,7 +1549,7 @@
             <div class="body">Mỗi trận play-off đánh theo thể thức <strong>3 ván (thắng 2 ván là thắng trận)</strong>, và mỗi ván rút xuống <strong>15 điểm</strong> (vẫn phải hơn đối thủ ít nhất 2 điểm) — căng thẳng và quyết định hơn so với 1 ván 21 điểm ở vòng bảng.</div>
           </div>
         </div>
-        
+
         <div class="fmt-compare">
           <div class="fc-box group">
             <span class="fc-tag">Vòng bảng</span>
@@ -1567,14 +1562,40 @@
             <div class="fc-line"><span class="fc-num">15</span><span class="fc-desc">điểm mỗi ván</span></div>
           </div>
         </div>
-        
+
+        <!-- BRACKET: SEMIFINALS -->
+        <div class="round-title" style="margin-top: 8px;"><span class="pill">Bán kết · ghép chéo 2 bảng</span></div>
+        <div class="po-semis">
+          <div class="po-final semi">
+            <div class="po-final-tag">Bán kết 1</div>
+            <div class="po-final-match">
+              <span class="po-seed">Nhất bảng A</span>
+              <span class="po-vs">VS</span>
+              <span class="po-seed">Nhì bảng B</span>
+            </div>
+            <div class="po-feed">Thắng → Chung kết &nbsp;·&nbsp; Thua → Tranh hạng Ba</div>
+          </div>
+          <div class="po-final semi">
+            <div class="po-final-tag">Bán kết 2</div>
+            <div class="po-final-match">
+              <span class="po-seed">Nhất bảng B</span>
+              <span class="po-vs">VS</span>
+              <span class="po-seed">Nhì bảng A</span>
+            </div>
+            <div class="po-feed">Thắng → Chung kết &nbsp;·&nbsp; Thua → Tranh hạng Ba</div>
+          </div>
+        </div>
+
+        <div class="po-connect">↓</div>
+
+        <!-- BRACKET: FINAL + 3RD PLACE -->
         <div class="po-finals">
           <div class="po-final gold">
-            <div class="po-final-tag">🏆 Trận tranh Nhất – Nhì</div>
+            <div class="po-final-tag">🏆 Chung kết — tranh Nhất – Nhì</div>
             <div class="po-final-match">
-              <span class="po-seed">Hạng 1</span>
+              <span class="po-seed">Thắng BK1</span>
               <span class="po-vs">VS</span>
-              <span class="po-seed">Hạng 2</span>
+              <span class="po-seed">Thắng BK2</span>
             </div>
             <div class="po-final-out">
               <span>🥇 Thắng → Giải Nhất</span>
@@ -1584,9 +1605,9 @@
           <div class="po-final bronze">
             <div class="po-final-tag">🥉 Trận tranh hạng Ba</div>
             <div class="po-final-match">
-              <span class="po-seed">Hạng 3</span>
+              <span class="po-seed">Thua BK1</span>
               <span class="po-vs">VS</span>
-              <span class="po-seed">Hạng 4</span>
+              <span class="po-seed">Thua BK2</span>
             </div>
             <div class="po-final-out">
               <span>🥉 Thắng → Giải Ba</span>
@@ -1595,17 +1616,17 @@
           </div>
         </div>
 
-        <p style="margin-top: 18px;">Chỉ <strong>2 trận play-off</strong> (1 trận tranh Nhất–Nhì + 1 trận tranh hạng Ba) là xác định đủ 4 giải thưởng:</p>
+        <p style="margin-top: 18px;"><strong>4 trận play-off</strong> (2 bán kết + chung kết + tranh hạng Ba) xác định đủ 4 giải thưởng:</p>
         <div class="prizes-row">
           <div class="prize-cell g1">
             <div class="pz-medal">🥇</div>
             <div class="pz-name">Giải Nhất</div>
-            <div class="pz-from">Thắng trận Nhất–Nhì</div>
+            <div class="pz-from">Thắng trận chung kết</div>
           </div>
           <div class="prize-cell g1">
             <div class="pz-medal">🥈</div>
             <div class="pz-name">Giải Nhì</div>
-            <div class="pz-from">Thua trận Nhất–Nhì</div>
+            <div class="pz-from">Thua trận chung kết</div>
           </div>
           <div class="prize-cell g2">
             <div class="pz-medal">🥉</div>
@@ -1620,11 +1641,11 @@
         </div>
       </div>
 
-      <!-- 6. HOURLY TIMELINE -->
+      <!-- 5. HOURLY TIMELINE -->
       <div class="sub-feature">
-        <div class="sub-num">6</div>
+        <div class="sub-num">5</div>
         <h3>Lịch trình <span class="hl">ngày thi đấu</span></h3>
-        <p>Thời gian được <strong>chia đều</strong> cho cả ngày trong khung <strong>14:00–18:00</strong>: vòng bảng mỗi lượt 15 phút (2 sân), mỗi trận play-off một khung ~50 phút (1 sân).</p>
+        <p>Thời gian được <strong>chia đều</strong> trong khung <strong>14:00–18:00</strong>: vòng bảng 9 trận trên 2 sân, sau đó play-off ghép chéo gồm 4 trận (3 ván 15 điểm mỗi trận).</p>
 
         <div class="agenda">
           <div class="ag-item flag">
@@ -1632,7 +1653,7 @@
             <div class="ag-mid"><div class="ag-dot"></div></div>
             <div class="ag-card">
               <div class="ag-title">Tập trung &amp; khai mạc</div>
-              <div class="ag-desc">Điểm danh, phổ biến luật, khởi động — xong trước giờ thuê sân để vào trận đúng 14:00.</div>
+              <div class="ag-desc">Điểm danh, chia bảng, phổ biến luật, khởi động — xong trước giờ thuê sân để vào trận đúng 14:00.</div>
             </div>
           </div>
           <div class="ag-item">
@@ -1640,35 +1661,43 @@
             <div class="ag-mid"><div class="ag-dot"></div></div>
             <div class="ag-card">
               <div class="ag-title"><span class="ag-chip">Vòng bảng</span> Bắt đầu thi đấu</div>
-              <div class="ag-desc">15 trận trên <strong>2 sân</strong>, chia <strong>8 lượt × 15 phút</strong> (mỗi trận 1 ván 21 điểm).</div>
+              <div class="ag-desc">9 trận (Bảng A 6 + Bảng B 3) trên <strong>2 sân</strong>, mỗi trận 1 ván 21 điểm (~15 phút/trận). (~14:00–15:30)</div>
             </div>
           </div>
           <div class="ag-item">
-            <div class="ag-time">16:00</div>
+            <div class="ag-time">15:30</div>
             <div class="ag-mid"><div class="ag-dot"></div></div>
             <div class="ag-card">
               <div class="ag-title">Kết thúc vòng bảng</div>
-              <div class="ag-desc">Tổng kết bảng xếp hạng, chốt <strong>Top 4</strong>. Chuyển về 1 sân (~10 phút).</div>
+              <div class="ag-desc">Tổng kết BXH 2 bảng, chốt <strong>Top 2 mỗi bảng</strong> và xếp cặp bán kết. (~10 phút)</div>
             </div>
           </div>
           <div class="ag-item po">
-            <div class="ag-time">16:10</div>
+            <div class="ag-time">15:40</div>
             <div class="ag-mid"><div class="ag-dot"></div></div>
             <div class="ag-card">
-              <div class="ag-title"><span class="ag-chip">Play-off</span> Trận tranh hạng Ba</div>
-              <div class="ag-desc">Hạng 3 – Hạng 4 (1 sân, 3 ván 15 điểm) — tranh giải Ba &amp; Khuyến khích. (~16:10–17:00)</div>
+              <div class="ag-title"><span class="ag-chip">Play-off</span> Bán kết 1 &amp; 2</div>
+              <div class="ag-desc">2 trận đấu <strong>song song trên 2 sân</strong> (3 ván 15 điểm): Nhất A – Nhì B và Nhất B – Nhì A. (~15:40–16:30)</div>
+            </div>
+          </div>
+          <div class="ag-item po">
+            <div class="ag-time">16:35</div>
+            <div class="ag-mid"><div class="ag-dot"></div></div>
+            <div class="ag-card">
+              <div class="ag-title">🥉 Trận tranh hạng Ba</div>
+              <div class="ag-desc">2 đội thua bán kết (3 ván 15 điểm) — tranh giải Ba &amp; Khuyến khích. (~16:35–17:15)</div>
             </div>
           </div>
           <div class="ag-item po champ">
-            <div class="ag-time">17:00</div>
+            <div class="ag-time">17:20</div>
             <div class="ag-mid"><div class="ag-dot"></div></div>
             <div class="ag-card">
               <div class="ag-title">🏆 Chung kết — tranh Nhất – Nhì</div>
-              <div class="ag-desc">Hạng 1 – Hạng 2 (3 ván 15 điểm). Thắng giành giải Nhất. (~17:00–17:50)</div>
+              <div class="ag-desc">2 đội thắng bán kết (3 ván 15 điểm). Thắng giành giải Nhất. (~17:20–18:00)</div>
             </div>
           </div>
           <div class="ag-item flag">
-            <div class="ag-time">17:50</div>
+            <div class="ag-time">18:00</div>
             <div class="ag-mid"><div class="ag-dot"></div></div>
             <div class="ag-card">
               <div class="ag-title">Bế mạc &amp; trao giải</div>
@@ -1681,7 +1710,7 @@
           <div class="icon-circle">!</div>
           <div>
             <span class="lbl">Lưu ý</span>
-            <div class="body">Các mốc giờ mang tính <strong>dự kiến</strong> — BTC linh hoạt theo tiến độ. Vòng bảng: 8 lượt × 15 phút lấp đầy 14:00–16:00 (2 sân); play-off: 2 trận chia đều khung 16:00–18:00 (1 sân), mỗi trận ~50 phút nên rất thong thả cho 3 ván.</div>
+            <div class="body">Các mốc giờ mang tính <strong>dự kiến</strong> — BTC linh hoạt theo tiến độ. Vòng bảng dùng 2 sân cho nhanh; play-off có thể chạy 2 bán kết song song, sau đó tranh hạng Ba và chung kết lần lượt để mọi người cùng theo dõi.</div>
           </div>
         </div>
       </div>
