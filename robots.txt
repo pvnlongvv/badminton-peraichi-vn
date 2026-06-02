@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pvnlongvv.github.io/badminton-peraichi-vn/sitemap.xml

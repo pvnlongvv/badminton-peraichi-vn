@@ -1,6 +1,6 @@
-# 🏸 Luật chơi cầu lông đôi nam nữ — Hướng dẫn cho người mới
+# 🏸 Peraichi Badminton Cup 2026 — Luật chơi & Thể thức cầu lông đôi nam nữ
 
-Trang web một-trang (single page) giới thiệu **luật chơi cầu lông đôi nam nữ** và **thể thức giải đấu**, viết bằng tiếng Việt, dành cho người mới chơi. Trang có nhiều minh hoạ tương tác (demo giao cầu, xoay người, sơ đồ sân...) chạy hoàn toàn trên trình duyệt.
+Trang web một-trang (single page) cho **Peraichi Badminton Cup 2026** — giải cầu lông đôi nam nữ **nội bộ của Peraichi Việt Nam**. Trang giới thiệu **luật chơi cầu lông đôi nam nữ** và **thể thức giải đấu**, viết bằng tiếng Việt, dành cho người mới chơi, kèm nhiều minh hoạ tương tác (demo giao cầu, xoay người, sơ đồ sân...) chạy hoàn toàn trên trình duyệt.
 
 🔗 **Xem trực tiếp:** https://pvnlongvv.github.io/badminton-peraichi-vn/
 
@@ -18,7 +18,7 @@ Trang web một-trang (single page) giới thiệu **luật chơi cầu lông đ
 | **Vùng giao cầu / IN-OUT / LET** | Minh hoạ trực quan cầu trong–ngoài sân, ô giao cầu hợp lệ, tình huống đánh lại. |
 | **Tóm tắt nhanh** | 6 điều cốt lõi cần nhớ. |
 
-## Thể thức giải đấu
+## Thể thức giải đấu (Peraichi Badminton Cup 2026)
 
 **7 đội**, mỗi đội 1 cặp nam–nữ, thi đấu qua **2 giai đoạn**:
 
@@ -65,11 +65,40 @@ Trang được host bằng **GitHub Pages** từ nhánh `main`. Mỗi lần push
 https://pvnlongvv.github.io/badminton-peraichi-vn/
 ```
 
+## SEO & chia sẻ mạng xã hội
+
+Trang đã được tối ưu sẵn cho Google và link preview (Facebook / Zalo / LinkedIn / X):
+
+- **Thẻ meta**: `description`, `keywords`, `canonical`, `robots`, `theme-color`.
+- **Open Graph + Twitter Card**: tiêu đề, mô tả và ảnh `og-image.png` (1200×630) hiển thị khi dán link.
+- **Structured data (JSON-LD)**: `WebSite`, `WebPage`, `FAQPage` — giúp Google hiểu nội dung & có cơ hội hiện rich result cho các câu hỏi luật cầu lông.
+- **`robots.txt`** và **`sitemap.xml`** ở thư mục gốc.
+
+### Tạo lại ảnh chia sẻ (`og-image.png`)
+
+Ảnh được render từ `assets/og-card.html` bằng headless Chrome:
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless --disable-gpu --hide-scrollbars \
+  --force-device-scale-factor=1 --window-size=1200,630 \
+  --virtual-time-budget=5000 \
+  --screenshot="$PWD/og-image.png" \
+  "file://$PWD/assets/og-card.html"
+```
+
+> Sau khi cập nhật ảnh, dùng [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) để "Scrape Again" cho Facebook tải lại ảnh mới.
+
 ## Cấu trúc thư mục
 
 ```
 .
-├── index.html   # Toàn bộ trang (HTML + CSS + JS)
+├── index.html          # Toàn bộ trang (HTML + CSS + JS) + thẻ SEO/OG
+├── og-image.png        # Ảnh chia sẻ mạng xã hội (1200×630)
+├── robots.txt          # Cho phép bot & trỏ tới sitemap
+├── sitemap.xml         # Sitemap cho Google Search Console
+├── assets/
+│   └── og-card.html    # Nguồn để render og-image.png
 └── README.md
 ```
 
