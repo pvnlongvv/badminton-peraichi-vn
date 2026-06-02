@@ -70,13 +70,13 @@ https://pvnlongvv.github.io/badminton-peraichi-vn/
 Trang đã được tối ưu sẵn cho Google và link preview (Facebook / Zalo / LinkedIn / X):
 
 - **Thẻ meta**: `description`, `keywords`, `canonical`, `robots`, `theme-color`.
-- **Open Graph + Twitter Card**: tiêu đề, mô tả và ảnh `og-image.png` (1200×630) hiển thị khi dán link.
+- **Open Graph + Twitter Card**: tiêu đề, mô tả và ảnh `og-image.jpg` (1200×630, nền là ảnh đội Peraichi Badminton Club) hiển thị khi dán link.
 - **Structured data (JSON-LD)**: `WebSite`, `WebPage`, `FAQPage` — giúp Google hiểu nội dung & có cơ hội hiện rich result cho các câu hỏi luật cầu lông.
 - **`robots.txt`** và **`sitemap.xml`** ở thư mục gốc.
 
-### Tạo lại ảnh chia sẻ (`og-image.png`)
+### Tạo lại ảnh chia sẻ (`og-image.jpg`)
 
-Ảnh được render từ `assets/og-card.html` bằng headless Chrome:
+Ảnh nền là `assets/hero.jpg`. Render `assets/og-card.html` bằng headless Chrome rồi nén sang JPEG:
 
 ```bash
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
@@ -85,6 +85,8 @@ Trang đã được tối ưu sẵn cho Google và link preview (Facebook / Zalo
   --virtual-time-budget=5000 \
   --screenshot="$PWD/og-image.png" \
   "file://$PWD/assets/og-card.html"
+
+magick og-image.png -quality 85 -strip og-image.jpg && rm og-image.png
 ```
 
 > Sau khi cập nhật ảnh, dùng [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) để "Scrape Again" cho Facebook tải lại ảnh mới.
@@ -94,11 +96,12 @@ Trang đã được tối ưu sẵn cho Google và link preview (Facebook / Zalo
 ```
 .
 ├── index.html          # Toàn bộ trang (HTML + CSS + JS) + thẻ SEO/OG
-├── og-image.png        # Ảnh chia sẻ mạng xã hội (1200×630)
+├── og-image.jpg        # Ảnh chia sẻ mạng xã hội (1200×630)
 ├── robots.txt          # Cho phép bot & trỏ tới sitemap
 ├── sitemap.xml         # Sitemap cho Google Search Console
 ├── assets/
-│   └── og-card.html    # Nguồn để render og-image.png
+│   ├── hero.jpg        # Ảnh đội (hero banner + nền ảnh share)
+│   └── og-card.html    # Nguồn để render og-image.jpg
 └── README.md
 ```
 
