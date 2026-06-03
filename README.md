@@ -10,7 +10,7 @@ Trang web một-trang (single page) cho **Peraichi Badminton Cup 2026** — gi�
 
 | Mục | Nội dung |
 |-----|----------|
-| **Hero + Số liệu** | Giới thiệu giải & các con số chính (7 đội, 2 bảng, 21 điểm/ván, Top 2 mỗi bảng). |
+| **Hero + Số liệu** | Giới thiệu giải & các con số chính (6 đội, 2 bảng, 21 điểm/ván, Top 2 mỗi bảng). |
 | **Thể thức & Lịch thi đấu** | Toàn bộ luật giải: chia bảng, lịch vòng bảng, xếp hạng, play-off, lịch trình ngày thi đấu. |
 | **Chuẩn bị cơ bản** | Kích thước sân, đội hình, cách bắt đầu trận đấu. |
 | **Tính điểm & Giao cầu** | Cách tính điểm + **demo giao cầu tương tác** và **demo xoay người 4 pha**. |
@@ -20,12 +20,12 @@ Trang web một-trang (single page) cho **Peraichi Badminton Cup 2026** — gi�
 
 ## Thể thức giải đấu (Peraichi Badminton Cup 2026)
 
-**7 đội**, mỗi đội 1 cặp nam–nữ, thi đấu qua **2 giai đoạn**:
+**6 đội**, mỗi đội 1 cặp nam–nữ, thi đấu qua **2 giai đoạn**:
 
 ### Giai đoạn 1 — Vòng bảng
-- Chia **2 bảng**: **Bảng A** (4 đội) và **Bảng B** (3 đội).
+- Chia **2 bảng đều nhau**: **Bảng A** (3 đội) và **Bảng B** (3 đội).
 - Mỗi bảng đấu **vòng tròn nội bộ**, 1 ván 21 điểm — thắng +2, thua 0 điểm.
-- Tổng **9 trận** (Bảng A 6 trận, Bảng B 3 trận).
+- Tổng **6 trận** (mỗi bảng 3 trận); mỗi đội đánh 2 trận vòng bảng.
 - **Top 2 mỗi bảng** (4 đội) giành vé vào play-off.
 
 ### Giai đoạn 2 — Play-off (ghép chéo, 3 ván 15 điểm)
