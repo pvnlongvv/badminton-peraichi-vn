@@ -1044,6 +1044,8 @@
   }
   .vs-team { display: inline-flex; align-items: center; gap: 6px; font-family: var(--rounded); font-weight: 700; font-size: 13px; color: var(--ink); }
   .vs-team.right { flex-direction: row-reverse; }
+  .tno { font-family: var(--rounded); font-weight: 800; font-size: 10.5px; color: var(--ink-muted); letter-spacing: 0.02em; flex-shrink: 0; }
+  .gc-team .gc-pts { margin-left: auto; font-size: 12px; font-weight: 600; color: var(--ink-muted); }
   .team-dot { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 0 2px white, 0 0 0 3px rgba(0,0,0,0.06); }
   .vs-mid {
     font-family: var(--rounded); font-weight: 800; font-size: 11px;
@@ -1401,9 +1403,9 @@
               </div>
             </div>
             <div class="gc-teams">
-              <div class="gc-team"><span class="team-dot" style="background:#00a4dc"></span>Đội 1</div>
-              <div class="gc-team"><span class="team-dot" style="background:#ff5a5f"></span>Đội 2</div>
-              <div class="gc-team"><span class="team-dot" style="background:#ffb703"></span>Đội 3</div>
+              <div class="gc-team"><span class="team-dot" style="background:#00a4dc"></span><span class="tno">Đội 1</span>&nbsp;Phạm Sĩ Việt + Karin<span class="gc-pts">6 điểm</span></div>
+              <div class="gc-team"><span class="team-dot" style="background:#ffb703"></span><span class="tno">Đội 3</span>&nbsp;Vũ + Yên<span class="gc-pts">7 điểm</span></div>
+              <div class="gc-team"><span class="team-dot" style="background:#8338ec"></span><span class="tno">Đội 5</span>&nbsp;Tuấn Hoàng + Chi<span class="gc-pts">8 điểm</span></div>
             </div>
             <div class="gc-foot"><span class="adv">TOP 2</span> vào play-off · mỗi đội đánh 2 trận</div>
           </div>
@@ -1416,9 +1418,9 @@
               </div>
             </div>
             <div class="gc-teams">
-              <div class="gc-team"><span class="team-dot" style="background:#2a9d8f"></span>Đội 4</div>
-              <div class="gc-team"><span class="team-dot" style="background:#8338ec"></span>Đội 5</div>
-              <div class="gc-team"><span class="team-dot" style="background:#fb6f92"></span>Đội 6</div>
+              <div class="gc-team"><span class="team-dot" style="background:#ff5a5f"></span><span class="tno">Đội 2</span>&nbsp;Tiến + Võ Văn Long<span class="gc-pts">8 điểm</span></div>
+              <div class="gc-team"><span class="team-dot" style="background:#2a9d8f"></span><span class="tno">Đội 4</span>&nbsp;Tuấn Anh + Trần Dơn Duy<span class="gc-pts">6 điểm</span></div>
+              <div class="gc-team"><span class="team-dot" style="background:#fb6f92"></span><span class="tno">Đội 6</span>&nbsp;Khánh + Phan Phạm Tuấn<span class="gc-pts">7 điểm</span></div>
             </div>
             <div class="gc-foot"><span class="adv">TOP 2</span> vào play-off · mỗi đội đánh 2 trận</div>
           </div>
@@ -1444,13 +1446,13 @@
           <div class="rc-head">
             <span class="rc-badge">A1</span>
             <span class="rc-title">Lượt 1</span>
-            <span class="rc-note">Đội 3 nghỉ</span>
+            <span class="rc-note">Đội 5 (Tuấn Hoàng + Chi) nghỉ</span>
           </div>
           <div class="vs-grid" style="grid-template-columns: 1fr;">
           <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#00a4dc"></span>Đội 1</span>
+            <span class="vs-team"><span class="team-dot" style="background:#00a4dc"></span><span class="tno">Đội 1</span>&nbsp;Phạm Sĩ Việt + Karin</span>
             <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#ff5a5f"></span>Đội 2</span>
+            <span class="vs-team right"><span class="team-dot" style="background:#ffb703"></span><span class="tno">Đội 3</span>&nbsp;Vũ + Yên</span>
           </div>
           </div>
         </div>
@@ -1458,13 +1460,13 @@
           <div class="rc-head">
             <span class="rc-badge">A2</span>
             <span class="rc-title">Lượt 2</span>
-            <span class="rc-note">Đội 2 nghỉ</span>
+            <span class="rc-note">Đội 3 (Vũ + Yên) nghỉ</span>
           </div>
           <div class="vs-grid" style="grid-template-columns: 1fr;">
           <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#00a4dc"></span>Đội 1</span>
+            <span class="vs-team"><span class="team-dot" style="background:#00a4dc"></span><span class="tno">Đội 1</span>&nbsp;Phạm Sĩ Việt + Karin</span>
             <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#ffb703"></span>Đội 3</span>
+            <span class="vs-team right"><span class="team-dot" style="background:#8338ec"></span><span class="tno">Đội 5</span>&nbsp;Tuấn Hoàng + Chi</span>
           </div>
           </div>
         </div>
@@ -1472,13 +1474,13 @@
           <div class="rc-head">
             <span class="rc-badge">A3</span>
             <span class="rc-title">Lượt 3</span>
-            <span class="rc-note">Đội 1 nghỉ</span>
+            <span class="rc-note">Đội 1 (Phạm Sĩ Việt + Karin) nghỉ</span>
           </div>
           <div class="vs-grid" style="grid-template-columns: 1fr;">
           <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#ff5a5f"></span>Đội 2</span>
+            <span class="vs-team"><span class="team-dot" style="background:#ffb703"></span><span class="tno">Đội 3</span>&nbsp;Vũ + Yên</span>
             <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#ffb703"></span>Đội 3</span>
+            <span class="vs-team right"><span class="team-dot" style="background:#8338ec"></span><span class="tno">Đội 5</span>&nbsp;Tuấn Hoàng + Chi</span>
           </div>
           </div>
         </div>
@@ -1490,13 +1492,13 @@
           <div class="rc-head">
             <span class="rc-badge">B1</span>
             <span class="rc-title">Lượt 1</span>
-            <span class="rc-note">Đội 6 nghỉ</span>
+            <span class="rc-note">Đội 6 (Khánh + Phan Phạm Tuấn) nghỉ</span>
           </div>
           <div class="vs-grid" style="grid-template-columns: 1fr;">
           <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#2a9d8f"></span>Đội 4</span>
+            <span class="vs-team"><span class="team-dot" style="background:#ff5a5f"></span><span class="tno">Đội 2</span>&nbsp;Tiến + Võ Văn Long</span>
             <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#8338ec"></span>Đội 5</span>
+            <span class="vs-team right"><span class="team-dot" style="background:#2a9d8f"></span><span class="tno">Đội 4</span>&nbsp;Tuấn Anh + Trần Dơn Duy</span>
           </div>
           </div>
         </div>
@@ -1504,13 +1506,13 @@
           <div class="rc-head">
             <span class="rc-badge">B2</span>
             <span class="rc-title">Lượt 2</span>
-            <span class="rc-note">Đội 5 nghỉ</span>
+            <span class="rc-note">Đội 4 (Tuấn Anh + Trần Dơn Duy) nghỉ</span>
           </div>
           <div class="vs-grid" style="grid-template-columns: 1fr;">
           <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#2a9d8f"></span>Đội 4</span>
+            <span class="vs-team"><span class="team-dot" style="background:#ff5a5f"></span><span class="tno">Đội 2</span>&nbsp;Tiến + Võ Văn Long</span>
             <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#fb6f92"></span>Đội 6</span>
+            <span class="vs-team right"><span class="team-dot" style="background:#fb6f92"></span><span class="tno">Đội 6</span>&nbsp;Khánh + Phan Phạm Tuấn</span>
           </div>
           </div>
         </div>
@@ -1518,13 +1520,13 @@
           <div class="rc-head">
             <span class="rc-badge">B3</span>
             <span class="rc-title">Lượt 3</span>
-            <span class="rc-note">Đội 4 nghỉ</span>
+            <span class="rc-note">Đội 2 (Tiến + Võ Văn Long) nghỉ</span>
           </div>
           <div class="vs-grid" style="grid-template-columns: 1fr;">
           <div class="vs-card">
-            <span class="vs-team"><span class="team-dot" style="background:#8338ec"></span>Đội 5</span>
+            <span class="vs-team"><span class="team-dot" style="background:#2a9d8f"></span><span class="tno">Đội 4</span>&nbsp;Tuấn Anh + Trần Dơn Duy</span>
             <span class="vs-mid">VS</span>
-            <span class="vs-team right"><span class="team-dot" style="background:#fb6f92"></span>Đội 6</span>
+            <span class="vs-team right"><span class="team-dot" style="background:#fb6f92"></span><span class="tno">Đội 6</span>&nbsp;Khánh + Phan Phạm Tuấn</span>
           </div>
           </div>
         </div>
