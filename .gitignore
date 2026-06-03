@@ -1,0 +1,6 @@
+# Dữ liệu nội bộ / cá nhân — KHÔNG đẩy lên GitHub Pages công khai
+# (danh sách đăng ký, phiếu khảo sát trình độ, báo cáo chia đội, trang bốc thăm)
+docs/
+
+# macOS
+.DS_Store
